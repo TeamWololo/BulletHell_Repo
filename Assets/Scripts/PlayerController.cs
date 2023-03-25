@@ -90,12 +90,21 @@ public class PlayerController : MonoBehaviour
         return currentPosition;
     }
 
+    void CheckActions()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        {
+            PlayerBullet playerBullet = Instantiate(_player.PlayerBullet, this.transform.position,
+                _player.PlayerBullet.transform.rotation);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        CheckActions();
         ControlSpeed();
-        Vector3 currentPosition = GetNewPosition(this.transform.position);
-        this.transform.position = currentPosition;
+        this.transform.position = GetNewPosition(this.transform.position);
     }
     
 }// end of PlayerController
