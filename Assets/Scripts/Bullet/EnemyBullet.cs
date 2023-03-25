@@ -53,5 +53,11 @@ public class EnemyBullet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        if (col.gameObject.layer == 7)
+        {
+            col.gameObject.GetComponent<Player>().Health -= damage;
+            Destroy(this.gameObject);
+        }
     }
 }
