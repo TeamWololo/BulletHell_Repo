@@ -35,10 +35,10 @@ public class Enemy : MonoBehaviour
         CheckDeath();
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         GameObject colGO = col.gameObject;
-        if (colGO.layer == 8)
+        if (colGO.layer == (int)BLLayer.BL_PLAYERBULLET)
         {
             health -= colGO.GetComponent<PlayerBullet>().damage;
         }

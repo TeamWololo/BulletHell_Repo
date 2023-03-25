@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1528823587205687134}
   - component: {fileID: 5769681971072599516}
   - component: {fileID: 3358583437031264141}
-  - component: {fileID: 1748378786998411992}
-  - component: {fileID: 7280825152689250333}
+  - component: {fileID: 6886506846256093305}
+  - component: {fileID: 1155852491026807604}
   m_Layer: 9
   m_Name: LaserEnemyBullet
   m_TagString: Untagged
@@ -102,7 +102,28 @@ MonoBehaviour:
   speed: 50
   damage: 10
   MoveDirection: {x: 0, y: -1, z: 0}
---- !u!61 &1748378786998411992
+--- !u!50 &6886506846256093305
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6727055716168974457}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &1155852491026807604
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,26 +147,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.39, y: 0.2}
+  m_Size: {x: 1.43, y: 0.35}
   m_EdgeRadius: 0
---- !u!50 &7280825152689250333
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6727055716168974457}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0

@@ -1,17 +1,18 @@
+using System;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] private float speed = 100.0f;
-    
+
     public float damage = 10.0f;
     public Vector3 MoveDirection = Vector3.down;
-    
+
     private float leftEdgeX = 0.0f;
     private float rightEdgeX = 0.0f;
     private float upEdgeY = 0.0f;
     private float bottomEdgeY = 0.0f;
-    
+
     void Start()
     {
         if (!Camera.main)
@@ -21,8 +22,8 @@ public class EnemyBullet : MonoBehaviour
         }
 
         Camera mainCamera = Camera.main;
-        
-        leftEdgeX  = mainCamera.ViewportToWorldPoint(Vector3.zero).x - 1.0f;
+
+        leftEdgeX = mainCamera.ViewportToWorldPoint(Vector3.zero).x - 1.0f;
         rightEdgeX = mainCamera.ViewportToWorldPoint(Vector3.right).x + 1.0f;
         upEdgeY = mainCamera.ViewportToWorldPoint(Vector3.up).y + 1.0f;
         bottomEdgeY = mainCamera.ViewportToWorldPoint(Vector3.zero).y - 1.0f;
@@ -47,14 +48,14 @@ public class EnemyBullet : MonoBehaviour
         CheckOutside();
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.layer == 8)
+        if (col.gameObject.layer == (int)BLLayer.BL_PLAYERBULLET)
         {
             Destroy(this.gameObject);
         }
 
-        if (col.gameObject.layer == 7)
+        if (col.gameObject.layer == (int)BLLayer.BL_PLAYER)
         {
             col.gameObject.GetComponent<Player>().Health -= damage;
             Destroy(this.gameObject);

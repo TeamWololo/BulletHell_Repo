@@ -46,12 +46,4 @@ public class PlayerBullet : MonoBehaviour
         this.transform.position += MoveDirection * (speed * Time.deltaTime);
         CheckOutside();
     }
-
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.layer == 9)
-        {
-            Destroy(this.gameObject);
-        }
-    }
 }
