@@ -20,9 +20,10 @@ public class FireHemisphere : MonoBehaviour
         float angle = startAngle;
         Vector3 pos = this.transform.position;
         Vector3 rotationEuler = this.transform.rotation.eulerAngles;
+        float firstRotEulerZ = rotationEuler.z;
         Quaternion laserRotation = Quaternion.identity;
 
-        for (int i = 0; i < ammo + 1; i++)
+        for (int i = 0; i <= ammo; i++)
         {
             float bulletDirX = pos.x + Mathf.Sin((angle * Mathf.PI) / 180.0f);
             float bulletDirY = pos.y + Mathf.Cos((angle * Mathf.PI) / 180.0f);
@@ -30,13 +31,14 @@ public class FireHemisphere : MonoBehaviour
             Vector3 bulletMoveVector = new Vector3(bulletDirX, bulletDirY, 0.0f);
             Vector3 bulletDirection = (bulletMoveVector - pos).normalized;
             
-            rotationEuler.z += angle - 90.0f;
+            rotationEuler.z -= angle - 90.0f;
             laserRotation = Quaternion.Euler(rotationEuler);
             
             EnemyBullet bullet = Instantiate(_enemyBullet, pos, laserRotation);
             bullet.MoveDirection = bulletDirection;
 
             angle += angleStep;
+            rotationEuler.z = firstRotEulerZ;
         }
     }
 
