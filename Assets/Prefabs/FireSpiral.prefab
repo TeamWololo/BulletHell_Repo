@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyBullet: {fileID: 4655603275306639964, guid: 1ae840cafc1c3fe4fbe64dc7eaf80dee, type: 3}
   angleStep: 10
+  damage: 10
 --- !u!61 &8253622763030322177
 BoxCollider2D:
   m_ObjectHideFlags: 0
