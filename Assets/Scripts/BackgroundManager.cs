@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackgroundManager : MonoBehaviour
 {
-    [SerializeField] private Player _player;
+    private Player _player;
     [SerializeField] private float percentOfSpeed = 20.0f;
 
     private Material _material;
@@ -15,6 +15,7 @@ public class BackgroundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _player = FindObjectOfType<Player>();
         _material = GetComponent<SpriteRenderer>().material;
         prevSpeed = _player.Speed;
     }
