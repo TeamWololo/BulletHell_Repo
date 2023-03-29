@@ -9,12 +9,15 @@ public class BulletPool : MonoBehaviour
 
     [SerializeField] private PlayerBullet playerBullet;
     [SerializeField] private int playerBulletAmount = 8;
+    [SerializeField] private PlayerBullet ballisticBullet;
+    [SerializeField] private int ballisticBulletAmount = 16;
     [SerializeField] private EnemyBullet enemyLaserBullet;
     [SerializeField] private int enemyLaserAmount = 8;
     [SerializeField] private EnemyBullet enemyCircleBullet;
     [SerializeField] private int enemyCircleAmount = 8;
     
     private List<PlayerBullet> playerBulletObjects = new List<PlayerBullet>();
+    private List<PlayerBullet> ballisticBulletObjects = new List<PlayerBullet>();
     private List<EnemyBullet> enemyLaserObjects = new List<EnemyBullet>();
     private List<EnemyBullet> enemyCircleObjects = new List<EnemyBullet>();
 
@@ -30,6 +33,13 @@ public class BulletPool : MonoBehaviour
             PlayerBullet temp = Instantiate(playerBullet);
             temp.gameObject.SetActive(false);
             playerBulletObjects.Add(temp);
+        }
+
+        for (int i = 0; i < ballisticBulletAmount; i++)
+        {
+            PlayerBullet temp = Instantiate(ballisticBullet);
+            temp.gameObject.SetActive(false);
+            ballisticBulletObjects.Add(temp);
         }
     }
 
@@ -60,6 +70,19 @@ public class BulletPool : MonoBehaviour
     public PlayerBullet GetPlayerBullet()
     {
         foreach (PlayerBullet pb in playerBulletObjects)
+        {
+            if (!pb.gameObject.activeInHierarchy)
+            {
+                return pb;
+            }
+        }
+
+        return null;
+    }
+
+    public PlayerBullet GetBallisticBullet()
+    {
+        foreach (PlayerBullet pb in ballisticBulletObjects)
         {
             if (!pb.gameObject.activeInHierarchy)
             {

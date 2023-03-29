@@ -54,6 +54,34 @@ public class PlayerController : MonoBehaviour
         return currentPosition;
     }
 
+    void FireBallistics()
+    {
+        float angleStep = 360.0f / 5.0f;
+        float angle = 0.0f;
+        Vector3 pos = this.transform.position;
+
+        for (int i = 0; i < 5; i++)
+        {
+            float bulletDirX = pos.x + Mathf.Sin((angle * Mathf.PI) / 180.0f);
+            float bulletDirY = pos.y + Mathf.Cos((angle * Mathf.PI) / 180.0f);
+            
+            Vector3 bulletMoveVector = new Vector3(bulletDirX, bulletDirY, 0.0f);
+            Vector3 bulletDirection = (bulletMoveVector - pos).normalized;
+            
+            Quaternion laserRotation = Quaternion.FromToRotation(this.transform.up, bulletDirection);
+            
+            PlayerBullet ballisticBullet = BulletPool.Instance.GetBallisticBullet();
+            if (!ballisticBullet) return;
+        
+            ballisticBullet.transform.position = pos;
+            ballisticBullet.transform.rotation = laserRotation;
+            ballisticBullet.MoveDirection = bulletDirection;
+            ballisticBullet.gameObject.SetActive(true);
+
+            angle += angleStep;
+        }
+    }
+    
     void CheckActions()
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
@@ -62,6 +90,11 @@ public class PlayerController : MonoBehaviour
             if (!bullet) return;
             bullet.transform.position = this.transform.position;
             bullet.gameObject.SetActive(true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            FireBallistics();
         }
     }
 
