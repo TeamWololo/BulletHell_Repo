@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8253622763030322179}
   - component: {fileID: 8253622763030322178}
+  - component: {fileID: 8253622763030322191}
   - component: {fileID: 8253622763030322190}
   - component: {fileID: 8253622763030322177}
   - component: {fileID: 8253622763030322176}
-  - component: {fileID: 8253622763030322191}
   m_Layer: 10
   m_Name: FireSpiral
   m_TagString: Untagged
@@ -88,6 +88,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8253622763030322191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8253622763030322181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405ca23236366a14081394946261ae6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  maxHealth: 100
 --- !u!114 &8253622763030322190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07832418c7e9e3b418e57628123bca7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyBullet: {fileID: 4655603275306639964, guid: 1ae840cafc1c3fe4fbe64dc7eaf80dee, type: 3}
   angleStep: 10
   damage: 10
 --- !u!61 &8253622763030322177
@@ -150,17 +163,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8253622763030322191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8253622763030322181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 405ca23236366a14081394946261ae6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  maxHealth: 100

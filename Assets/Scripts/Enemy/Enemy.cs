@@ -12,12 +12,6 @@ public class Enemy : MonoBehaviour
         health = maxHealth;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     void CheckDeath()
     {
         if (health <= 0.0f)

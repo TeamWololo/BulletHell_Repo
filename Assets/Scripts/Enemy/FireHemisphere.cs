@@ -3,7 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(Enemy))]
 public class FireHemisphere : MonoBehaviour
 {
-    [SerializeField] private EnemyBullet _enemyBullet;
     [SerializeField] private float damage = 10.0f;
 
     [Header("Fire Variables")] 
@@ -11,7 +10,6 @@ public class FireHemisphere : MonoBehaviour
     [SerializeField] private float startAngle = 90.0f;
     [SerializeField] private float endAngle = 270.0f;
     
-
     private float elapsedTime = 0.0f;
     
     void Fire()
@@ -21,7 +19,6 @@ public class FireHemisphere : MonoBehaviour
         Vector3 pos = this.transform.position;
         Vector3 rotationEuler = this.transform.rotation.eulerAngles;
         float firstRotEulerZ = rotationEuler.z;
-        Quaternion laserRotation = Quaternion.identity;
 
         for (int i = 0; i <= ammo; i++)
         {
@@ -32,7 +29,7 @@ public class FireHemisphere : MonoBehaviour
             Vector3 bulletDirection = (bulletMoveVector - pos).normalized;
             
             rotationEuler.z -= angle - 90.0f;
-            laserRotation = Quaternion.Euler(rotationEuler);
+            Quaternion laserRotation = Quaternion.Euler(rotationEuler);
             
             EnemyBullet enemyBullet = BulletPool.Instance.GetEnemyLaserBullet();
             if (!enemyBullet) return;

@@ -53,9 +53,9 @@ public class ViewportManager : MonoBehaviour
 
     public bool IsInsideViewport(Vector3 pos, float threshold = 0.0f)
     {
-        if (pos.x <= leftEdgeX   + threshold ||
-            pos.x >= rightEdgeX  + threshold||
-            pos.y <= bottomEdgeY + threshold||
+        if (pos.x <= leftEdgeX   - threshold ||
+            pos.x >= rightEdgeX  + threshold ||
+            pos.y <= bottomEdgeY - threshold ||
             pos.y >= upEdgeY     + threshold)
         {
             return false;
@@ -64,12 +64,12 @@ public class ViewportManager : MonoBehaviour
         return true;
     }
 
-    void ClampInViewport(ref Vector3 pos, float threshold = 0.0f)
+    public void ClampInViewport(ref Vector3 pos, float threshold = 0.0f)
     {
-        pos.x = pos.x <= leftEdgeX + threshold ? leftEdgeX : pos.x;
-        pos.x = pos.x >= rightEdgeX + threshold ? rightEdgeX : pos.x;
-        pos.y = pos.y >= upEdgeY + threshold ? upEdgeY : pos.y;
-        pos.y = pos.y <= bottomEdgeY + threshold ? bottomEdgeY : pos.y;
+        pos.x = pos.x <= leftEdgeX + threshold ? leftEdgeX + threshold : pos.x;
+        pos.x = pos.x >= rightEdgeX - threshold ? rightEdgeX - threshold : pos.x;
+        pos.y = pos.y >= upEdgeY - threshold ? upEdgeY - threshold : pos.y;
+        pos.y = pos.y <= bottomEdgeY + threshold ? bottomEdgeY + threshold : pos.y;
     }
 
     // Update is called once per frame

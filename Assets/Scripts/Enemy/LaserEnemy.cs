@@ -3,7 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(Enemy))]
 public class LaserEnemy : MonoBehaviour
 {
-    [SerializeField] private EnemyBullet _enemyBullet;
     [SerializeField] private float damage = 10.0f;
 
     private Enemy _enemyBase;

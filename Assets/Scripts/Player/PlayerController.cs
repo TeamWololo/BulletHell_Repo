@@ -8,27 +8,9 @@ public class PlayerController : MonoBehaviour
 
     private Player _player;
 
-    private float leftEdgeX = 0.0f;
-    private float rightEdgeX = 0.0f;
-    private float upEdgeY = 0.0f;
-    private float bottomEdgeY = 0.0f;
-    
     // Start is called before the first frame update
     void Start()
     {
-        if (!Camera.main)
-        {
-            Debug.Log("Cannot found main camera");
-            return;
-        }
-
-        Camera mainCamera = Camera.main;
-        
-        leftEdgeX  = mainCamera.ViewportToWorldPoint(Vector3.zero).x + boundaryThreshold;
-        rightEdgeX = mainCamera.ViewportToWorldPoint(Vector3.right).x - boundaryThreshold;
-        upEdgeY = mainCamera.ViewportToWorldPoint(Vector3.up).y - boundaryThreshold;
-        bottomEdgeY = mainCamera.ViewportToWorldPoint(Vector3.zero).y + boundaryThreshold;
-
         _player = GetComponent<Player>();
     }
 
@@ -50,42 +32,24 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             currentPosition.x += (_player.Speed * Time.deltaTime);
-
-            if (currentPosition.x >= rightEdgeX)
-            {
-                currentPosition.x = rightEdgeX;
-            }
         }
         
         if (Input.GetKey(KeyCode.A))
         {
             currentPosition.x -= (_player.Speed * Time.deltaTime);
-            
-            if (currentPosition.x <= leftEdgeX)
-            {
-                currentPosition.x = leftEdgeX;
-            }
         }
         
         if (Input.GetKey(KeyCode.W))
         {
             currentPosition.y += (_player.Speed * Time.deltaTime);
-            
-            if (currentPosition.y >= upEdgeY)
-            {
-                currentPosition.y = upEdgeY;
-            }
         }
         
         if (Input.GetKey(KeyCode.S))
         {
             currentPosition.y -= (_player.Speed * Time.deltaTime);
-            
-            if (currentPosition.y <= bottomEdgeY)
-            {
-                currentPosition.y = bottomEdgeY;
-            }
         }
+        
+        ViewportManager.Instance.ClampInViewport(ref currentPosition, boundaryThreshold);
 
         return currentPosition;
     }
@@ -108,5 +72,4 @@ public class PlayerController : MonoBehaviour
         ControlSpeed();
         this.transform.position = GetNewPosition(this.transform.position);
     }
-    
 }// end of PlayerController

@@ -1,10 +1,8 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Enemy))]
 public class FireSpiral : MonoBehaviour
 {
-    [SerializeField] private EnemyBullet _enemyBullet;
     [SerializeField] private float angleStep = 10.0f;
     [SerializeField] private float damage = 15.0f;
     
