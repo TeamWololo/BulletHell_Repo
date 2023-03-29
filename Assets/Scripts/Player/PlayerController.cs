@@ -1,17 +1,23 @@
+using System.Timers;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] private float minSpeed = 10.0f;
     [SerializeField] private float boundaryThreshold = 0.69f;
     [SerializeField] private float speedIncDecSize = 0.5f;
+    [Header("Laser")] 
+    [SerializeField] private LineRenderer laserRenderer;
 
+    private float laserElapsedTime = 0.0f;
     private Player _player;
 
     // Start is called before the first frame update
     void Start()
     {
         _player = GetComponent<Player>();
+        laserRenderer.enabled = false;
     }
 
     void ControlSpeed()
@@ -81,7 +87,12 @@ public class PlayerController : MonoBehaviour
             angle += angleStep;
         }
     }
-    
+
+    void FireLaser()
+    {
+        laserRenderer.enabled = true;
+    }
+
     void CheckActions()
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
@@ -96,11 +107,26 @@ public class PlayerController : MonoBehaviour
         {
             FireBallistics();
         }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            FireLaser();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (laserRenderer.enabled)
+        {
+            laserElapsedTime += Time.deltaTime;
+
+            if (laserElapsedTime < 2.0f) return;
+
+            laserRenderer.enabled = false;
+            laserElapsedTime = 0.0f;
+        }
+        
         CheckActions();
         ControlSpeed();
         this.transform.position = GetNewPosition(this.transform.position);
