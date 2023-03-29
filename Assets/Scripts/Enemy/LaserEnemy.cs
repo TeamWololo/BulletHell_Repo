@@ -19,9 +19,15 @@ public class LaserEnemy : MonoBehaviour
     {
         Vector3 rotationEuler = this.transform.rotation.eulerAngles;
         Quaternion laserRotation = Quaternion.Euler(rotationEuler.x, rotationEuler.y, rotationEuler.z - 270);
-        EnemyBullet enemyBullet = Instantiate(_enemyBullet, this.transform.position, laserRotation);
+
+        EnemyBullet enemyBullet = BulletPool.Instance.GetEnemyLaserBullet();
+        if (!enemyBullet) return;
+        
+        enemyBullet.transform.position = this.transform.position;
+        enemyBullet.transform.rotation = laserRotation;
         enemyBullet.MoveDirection = this.transform.up;
         enemyBullet.damage = damage;
+        enemyBullet.gameObject.SetActive(true);
     }
 
     // Update is called once per frame

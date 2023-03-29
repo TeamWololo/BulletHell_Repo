@@ -36,7 +36,7 @@ public class EnemyBullet : MonoBehaviour
             position.y <= bottomEdgeY ||
             position.y >= upEdgeY)
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 
@@ -51,13 +51,13 @@ public class EnemyBullet : MonoBehaviour
     {
         if (col.gameObject.layer == (int)BLLayer.BL_PLAYERBULLET)
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
 
         if (col.gameObject.layer == (int)BLLayer.BL_PLAYER)
         {
             col.gameObject.GetComponent<Player>().Health -= damage;
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 }

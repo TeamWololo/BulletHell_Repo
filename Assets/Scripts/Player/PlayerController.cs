@@ -94,8 +94,10 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            PlayerBullet playerBullet = Instantiate(_player.PlayerBullet, this.transform.position,
-                _player.PlayerBullet.transform.rotation);
+            PlayerBullet bullet = BulletPool.Instance.GetPlayerBullet();
+            if (!bullet) return;
+            bullet.transform.position = this.transform.position;
+            bullet.gameObject.SetActive(true);
         }
     }
 

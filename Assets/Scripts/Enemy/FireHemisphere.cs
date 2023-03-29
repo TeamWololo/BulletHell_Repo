@@ -34,8 +34,14 @@ public class FireHemisphere : MonoBehaviour
             rotationEuler.z -= angle - 90.0f;
             laserRotation = Quaternion.Euler(rotationEuler);
             
-            EnemyBullet bullet = Instantiate(_enemyBullet, pos, laserRotation);
-            bullet.MoveDirection = bulletDirection;
+            EnemyBullet enemyBullet = BulletPool.Instance.GetEnemyLaserBullet();
+            if (!enemyBullet) return;
+        
+            enemyBullet.transform.position = pos;
+            enemyBullet.transform.rotation = laserRotation;
+            enemyBullet.MoveDirection = bulletDirection;
+            enemyBullet.damage = damage;
+            enemyBullet.gameObject.SetActive(true);
 
             angle += angleStep;
             rotationEuler.z = firstRotEulerZ;

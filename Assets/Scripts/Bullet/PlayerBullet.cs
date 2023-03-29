@@ -36,7 +36,7 @@ public class PlayerBullet : MonoBehaviour
             position.y <= bottomEdgeY ||
             position.y >= upEdgeY)
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
     

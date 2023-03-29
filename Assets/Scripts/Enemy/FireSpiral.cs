@@ -6,6 +6,7 @@ public class FireSpiral : MonoBehaviour
 {
     [SerializeField] private EnemyBullet _enemyBullet;
     [SerializeField] private float angleStep = 10.0f;
+    [SerializeField] private float damage = 15.0f;
     
     private float angle = 0.0f;
     private float elapsedTime = 0.0f;
@@ -21,8 +22,14 @@ public class FireSpiral : MonoBehaviour
         Vector3 bulletMoveVector = new Vector3(bulletDirX, bulletDirY, 0.0f);
         Vector3 bulletDirection = (bulletMoveVector - pos).normalized;
 
-        EnemyBullet bullet = Instantiate(_enemyBullet, pos, rot);
-        bullet.MoveDirection = bulletDirection;
+        EnemyBullet enemyBullet = BulletPool.Instance.GetEnemyCircleBullet();
+        if (!enemyBullet) return;
+        
+        enemyBullet.transform.position = pos;
+        enemyBullet.transform.rotation = rot;
+        enemyBullet.MoveDirection = bulletDirection;
+        enemyBullet.damage = damage;
+        enemyBullet.gameObject.SetActive(true);
 
         angle += angleStep;
     }
