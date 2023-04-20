@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +5,8 @@ public class BulletPool : MonoBehaviour
 {
     public static BulletPool Instance;
 
+    [SerializeField] private Transform parent;
+    
     [SerializeField] private PlayerBullet playerBullet;
     [SerializeField] private int playerBulletAmount = 8;
     [SerializeField] private PlayerBullet ballisticBullet;
@@ -30,14 +30,14 @@ public class BulletPool : MonoBehaviour
     {
         for (int i = 0; i < playerBulletAmount; i++)
         {
-            PlayerBullet temp = Instantiate(playerBullet);
+            PlayerBullet temp = Instantiate(playerBullet, parent);
             temp.gameObject.SetActive(false);
             playerBulletObjects.Add(temp);
         }
 
         for (int i = 0; i < ballisticBulletAmount; i++)
         {
-            PlayerBullet temp = Instantiate(ballisticBullet);
+            PlayerBullet temp = Instantiate(ballisticBullet, parent);
             temp.gameObject.SetActive(false);
             ballisticBulletObjects.Add(temp);
         }
@@ -47,14 +47,14 @@ public class BulletPool : MonoBehaviour
     {
         for (int i = 0; i < enemyLaserAmount; i++)
         {
-            EnemyBullet temp = Instantiate(enemyLaserBullet);
+            EnemyBullet temp = Instantiate(enemyLaserBullet, parent);
             temp.gameObject.SetActive(false);
             enemyLaserObjects.Add(temp);
         }
 
         for (int i = 0; i < enemyCircleAmount; i++)
         {
-            EnemyBullet temp = Instantiate(enemyCircleBullet);
+            EnemyBullet temp = Instantiate(enemyCircleBullet, parent);
             temp.gameObject.SetActive(false);
             enemyCircleObjects.Add(temp);
         }

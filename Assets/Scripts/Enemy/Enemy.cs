@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -32,6 +34,14 @@ public class Enemy : MonoBehaviour
         if (colGO.layer == (int)BLLayer.BL_PLAYERBULLET)
         {
             health -= colGO.GetComponent<PlayerBullet>().damage;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.gameObject.layer == (int)BLLayer.BL_PLAYERLASER)
+        {
+            health -= 31.0f;
         }
     }
 }

@@ -105,6 +105,7 @@ MonoBehaviour:
   boundaryThreshold: 0.69
   speedIncDecSize: 1
   laserRenderer: {fileID: 4961030239530777096}
+  laserCollider: {fileID: 3843885659969526426}
 --- !u!114 &1373198339401381271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +178,8 @@ GameObject:
   m_Component:
   - component: {fileID: 270079843710733635}
   - component: {fileID: 4961030239530777096}
-  m_Layer: 0
+  - component: {fileID: 3843885659969526426}
+  m_Layer: 11
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +208,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3928673571520934333}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -298,3 +300,29 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!61 &3843885659969526426
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3928673571520934333}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 4.3849998}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.22, y: 8.87}
+  m_EdgeRadius: 0

@@ -1,4 +1,3 @@
-using System.Timers;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,8 +6,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float minSpeed = 10.0f;
     [SerializeField] private float boundaryThreshold = 0.69f;
     [SerializeField] private float speedIncDecSize = 0.5f;
+
     [Header("Laser")] 
+    [SerializeField] private float laserTimeToAlive = 2.0f;
     [SerializeField] private LineRenderer laserRenderer;
+    [SerializeField] private BoxCollider2D laserCollider;
 
     private float laserElapsedTime = 0.0f;
     private Player _player;
@@ -18,6 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         _player = GetComponent<Player>();
         laserRenderer.enabled = false;
+        laserCollider.enabled = false;
     }
 
     void ControlSpeed()
@@ -91,6 +94,7 @@ public class PlayerController : MonoBehaviour
     void FireLaser()
     {
         laserRenderer.enabled = true;
+        laserCollider.enabled = true;
     }
 
     void CheckActions()
@@ -121,9 +125,10 @@ public class PlayerController : MonoBehaviour
         {
             laserElapsedTime += Time.deltaTime;
 
-            if (laserElapsedTime < 2.0f) return;
+            if (laserElapsedTime < laserTimeToAlive) return;
 
             laserRenderer.enabled = false;
+            laserCollider.enabled = false;
             laserElapsedTime = 0.0f;
         }
         
