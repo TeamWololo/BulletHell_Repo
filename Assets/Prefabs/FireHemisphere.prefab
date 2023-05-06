@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: -10
   maxHealth: 100
+  percentageSpeed: 15.4
 --- !u!114 &7688973661606537500
 MonoBehaviour:
   m_ObjectHideFlags: 0

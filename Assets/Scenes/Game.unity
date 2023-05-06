@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &42561628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42561629}
+  m_Layer: 0
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &42561629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42561628}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.32402226, y: 0.8924198, z: -0.12914212}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1538772391}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &292924645
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,6 +456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDebug: 1
   sphereRadiusSize: 0.5
+  parent: {fileID: 42561629}
   laserAI: {fileID: 7488575000798192336, guid: e571981fce34c9849a102b5dd8bbe36d, type: 3}
   spawnLaserAI: 1
   fireHemisphereAI: {fileID: 7688973661606537488, guid: 8caa9b600f1ac3244bdb0bf9a8b4112e, type: 3}
@@ -732,6 +764,7 @@ Transform:
   - {fileID: 305068590}
   - {fileID: 292924646}
   - {fileID: 591717310}
+  - {fileID: 42561629}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

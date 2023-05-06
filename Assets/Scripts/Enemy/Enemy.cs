@@ -4,6 +4,7 @@ public class Enemy : MonoBehaviour
 {
     public float speed = 10.0f;
     [SerializeField] private float maxHealth = 100.0f;
+    [SerializeField] [Range(0.0f, 100.0f)] private float percentageSpeed = 1.0f; 
 
     private float health = 100.0f;
 
@@ -18,6 +19,11 @@ public class Enemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        if (!ViewportManager.Instance.IsInsideViewport(this.transform.position, 10.0f))
+        {
+            Destroy(this.gameObject);
+        }
     }
     
     void GetInViewport()
@@ -25,6 +31,7 @@ public class Enemy : MonoBehaviour
         Vector3 position = this.transform.position;
         if (ViewportManager.Instance.IsInsideViewport(position, -1.0f))
         {
+            transform.position += transform.up * (speed * (percentageSpeed / 100.0f) * Time.deltaTime);
             return;
         }
         
@@ -44,6 +51,7 @@ public class Enemy : MonoBehaviour
         if (colGO.layer == (int)BLLayer.BL_PLAYERBULLET)
         {
             health -= colGO.GetComponent<PlayerBullet>().damage;
+            col.gameObject.SetActive(false);
         }
     }
 

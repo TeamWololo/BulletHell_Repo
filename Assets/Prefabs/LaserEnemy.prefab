@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   maxHealth: 100
+  percentageSpeed: 29.2
 --- !u!61 &5426286760146207208
 BoxCollider2D:
   m_ObjectHideFlags: 0

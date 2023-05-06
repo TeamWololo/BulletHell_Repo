@@ -15,6 +15,7 @@ public class AISpawnManager : MonoBehaviour
     [SerializeField] private bool isDebug = true;
     [SerializeField] private float sphereRadiusSize = 0.5f;
 
+    [SerializeField] private Transform parent;
     [SerializeField] private GameObject laserAI;
     [SerializeField] private bool spawnLaserAI;
     [SerializeField] private GameObject fireHemisphereAI;
@@ -61,7 +62,8 @@ public class AISpawnManager : MonoBehaviour
             if (side < 33.0f)
             {
                 x = bottomLeft.x;
-                y = Random.Range(bottomLeft.y, upperLeft.y);
+                float width = upperLeft.y - bottomLeft.y;
+                y = Random.Range(bottomLeft.y + (width * 0.7f), upperLeft.y);
             }
             else if (side < 66.0f)
             {
@@ -71,7 +73,8 @@ public class AISpawnManager : MonoBehaviour
             else
             {
                 x = upperRight.x;
-                y = Random.Range(upperRight.y, bottomRight.y);
+                float width = upperRight.y - bottomRight.y;
+                y = Random.Range(bottomRight.y + (width * 0.7f), upperRight.y);
             }
         }
         else
@@ -144,7 +147,7 @@ public class AISpawnManager : MonoBehaviour
         
         Vector3 aiPosition = GetPosition();
         Vector3 direction = playerTransform.transform.position - aiPosition;
-        GameObject genAI = Instantiate(ai, aiPosition, ai.transform.rotation);
+        GameObject genAI = Instantiate(ai, aiPosition, ai.transform.rotation, parent);
         if (aiType == AIType.LASERAI)
         {
             genAI.transform.Rotate(new Vector3(0.0f, 0.0f, 1.0f), 180.0f);

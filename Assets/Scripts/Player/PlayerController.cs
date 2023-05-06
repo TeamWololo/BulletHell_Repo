@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float minSpeed = 10.0f;
     [SerializeField] private float boundaryThreshold = 0.69f;
     [SerializeField] private float speedIncDecSize = 0.5f;
+    [SerializeField] private float firerate = 0.2f;
 
     [Header("Laser")] 
     [SerializeField] private float laserTimeToAlive = 2.0f;
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private float laserElapsedTime = 0.0f;
     private Player _player;
+    private float timestamp = Mathf.Infinity;
 
     // Start is called before the first frame update
     void Start()
@@ -97,15 +99,31 @@ public class PlayerController : MonoBehaviour
         laserCollider.enabled = true;
     }
 
-    void CheckActions()
+    void CheckFire()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        {
+            timestamp = Time.time + firerate;
+        }
+
+        if (Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.Space))
+        {
+            timestamp = Mathf.Infinity;
+        }
+
+        if (Time.time >= timestamp)
         {
             PlayerBullet bullet = BulletPool.Instance.GetPlayerBullet();
             if (!bullet) return;
             bullet.transform.position = this.transform.position;
             bullet.gameObject.SetActive(true);
+            timestamp = Time.time + firerate;
         }
+    }
+    
+    void CheckActions()
+    {
+        CheckFire();
 
         if (Input.GetKeyDown(KeyCode.B))
         {
