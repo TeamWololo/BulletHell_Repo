@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &292924646
 Transform:
   m_ObjectHideFlags: 0
@@ -379,6 +379,62 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &591717309
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 591717310}
+  - component: {fileID: 591717311}
+  m_Layer: 0
+  m_Name: AISpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &591717310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591717309}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1538772391}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &591717311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591717309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98de9f75ec7d48144a370f038ff16d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDebug: 1
+  sphereRadiusSize: 0.5
+  laserAI: {fileID: 7488575000798192336, guid: e571981fce34c9849a102b5dd8bbe36d, type: 3}
+  spawnLaserAI: 1
+  fireHemisphereAI: {fileID: 7688973661606537488, guid: 8caa9b600f1ac3244bdb0bf9a8b4112e, type: 3}
+  spawnHemisphereAI: 0
+  fireSpiralAI: {fileID: 8253622763030322181, guid: 3ecd96f1a77b9e44e81a8158f417f44c, type: 3}
+  spawnSpiralAI: 0
+  fireDoubleSpiralAI: {fileID: 1786602464113711024, guid: e2789f1db6d1e3a458bb9732d94bf955, type: 3}
+  spawnDoubleSpiralAI: 0
+  playerTransform: {fileID: 1277140098}
+  thresholdForBounds: 0.5
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,6 +546,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1277140098 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1373198339401381270, guid: c34d440646aeff84493d96ed4381b6ed, type: 3}
+  m_PrefabInstance: {fileID: 329326563}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1357874288
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,7 +630,7 @@ Transform:
   m_GameObject: {fileID: 1357874288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.42452458, y: 0.33775946, z: 1}
+  m_LocalScale: {x: 0.52, y: 0.33775946, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -670,6 +731,7 @@ Transform:
   - {fileID: 1842029851}
   - {fileID: 305068590}
   - {fileID: 292924646}
+  - {fileID: 591717310}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -724,7 +786,7 @@ MonoBehaviour:
   ballisticBulletAmount: 16
   enemyLaserBullet: {fileID: 3358583437031264141, guid: 55ba5acd4c31a97479d56f70ed84253d, type: 3}
   enemyLaserAmount: 8
-  enemyCircleBullet: {fileID: 4655603275306639964, guid: 1ae840cafc1c3fe4fbe64dc7eaf80dee, type: 3}
+  enemyCircleBullet: {fileID: 6798276301332736220, guid: ac86f8f1409e3234c939d160658d2b3a, type: 3}
   enemyCircleAmount: 16
 --- !u!1 &2013105448
 GameObject:

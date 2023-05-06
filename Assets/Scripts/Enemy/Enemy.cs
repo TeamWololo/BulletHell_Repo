@@ -1,10 +1,8 @@
-using System;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] float speed = 10.0f;
+    public float speed = 10.0f;
     [SerializeField] private float maxHealth = 100.0f;
 
     private float health = 100.0f;
@@ -21,11 +19,30 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    
+    void GetInViewport()
+    {
+        Vector3 position = this.transform.position;
+        if (ViewportManager.Instance.IsInsideViewport(position, -1.0f))
+        {
+            return;
+        }
+
+        if (transform.up == -1.0f * Vector3.up)
+        {
+            transform.position += transform.up * (speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position += transform.up * (-1.0f * speed * Time.deltaTime);
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
         CheckDeath();
+        GetInViewport();
     }
 
     private void OnTriggerEnter2D(Collider2D col)

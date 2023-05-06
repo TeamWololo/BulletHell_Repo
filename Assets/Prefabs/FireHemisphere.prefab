@@ -161,7 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164cdcc80beae9a4b9c0361839756cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyBullet: {fileID: 3358583437031264141, guid: 55ba5acd4c31a97479d56f70ed84253d, type: 3}
   damage: 10
   ammo: 5
   startAngle: 90
