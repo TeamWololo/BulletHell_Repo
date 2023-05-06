@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class AISpawnManager : MonoBehaviour
@@ -31,6 +32,7 @@ public class AISpawnManager : MonoBehaviour
     
     [Header("Variables")]
     [SerializeField] private Transform parent;
+    [SerializeField] private string nextLevel = "Level_02";
     [SerializeField] private Transform playerTransform;
     [SerializeField] private float thresholdForBounds = 1.0f;
     
@@ -41,6 +43,7 @@ public class AISpawnManager : MonoBehaviour
 
     private float aiTimer = 0.0f;
     private float aiTime = 3.0f;
+    private GameObject boss;
     private AIType aiType = AIType.LASERAI;
     private bool canSpawn = true;
     private bool isBossSpawn = false;
@@ -192,7 +195,12 @@ public class AISpawnManager : MonoBehaviour
         if (CheckIfBossCanSpawn() && !isBossSpawn)
         {
             isBossSpawn = true;
-            Instantiate(bossPrefab);
+            boss = Instantiate(bossPrefab);
+        }
+
+        if (isBossSpawn && !boss.activeInHierarchy)
+        {
+            SceneManager.LoadScene(nextLevel);
         }
         
         if(!isBossSpawn)
