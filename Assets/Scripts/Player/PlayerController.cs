@@ -123,6 +123,15 @@ public class PlayerController : MonoBehaviour
     
     void CheckActions()
     {
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        {
+            PlayerBullet bullet = BulletPool.Instance.GetPlayerBullet();
+            if (!bullet) return;
+            bullet.transform.position = this.transform.position;
+            bullet.gameObject.SetActive(true);
+            timestamp = Time.time + firerate;
+        }
+        
         CheckFire();
 
         if (Input.GetKeyDown(KeyCode.B))
