@@ -27,15 +27,8 @@ public class Enemy : MonoBehaviour
         {
             return;
         }
-
-        if (transform.up == -1.0f * Vector3.up)
-        {
-            transform.position += transform.up * (speed * Time.deltaTime);
-        }
-        else
-        {
-            transform.position += transform.up * (-1.0f * speed * Time.deltaTime);
-        }
+        
+        transform.position += transform.up * (speed * Time.deltaTime);
     }
 
     // Update is called once per frame

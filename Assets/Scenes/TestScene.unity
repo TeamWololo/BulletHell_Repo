@@ -428,7 +428,7 @@ MonoBehaviour:
   laserAI: {fileID: 7488575000798192336, guid: e571981fce34c9849a102b5dd8bbe36d, type: 3}
   spawnLaserAI: 1
   fireHemisphereAI: {fileID: 7688973661606537488, guid: 8caa9b600f1ac3244bdb0bf9a8b4112e, type: 3}
-  spawnHemisphereAI: 0
+  spawnHemisphereAI: 1
   fireSpiralAI: {fileID: 8253622763030322181, guid: 3ecd96f1a77b9e44e81a8158f417f44c, type: 3}
   spawnSpiralAI: 0
   fireDoubleSpiralAI: {fileID: 1786602464113711024, guid: e2789f1db6d1e3a458bb9732d94bf955, type: 3}
@@ -781,13 +781,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 305068590}
   playerBullet: {fileID: 2062252341307915141, guid: 561ffe03f9b203a4ba500cc4c28e6353, type: 3}
-  playerBulletAmount: 8
+  playerBulletAmount: 32
   ballisticBullet: {fileID: 1336544102709523392, guid: d5de9e61487ebdc4ea148cdfc40261f1, type: 3}
-  ballisticBulletAmount: 16
+  ballisticBulletAmount: 32
   enemyLaserBullet: {fileID: 3358583437031264141, guid: 55ba5acd4c31a97479d56f70ed84253d, type: 3}
-  enemyLaserAmount: 8
+  enemyLaserAmount: 32
   enemyCircleBullet: {fileID: 6798276301332736220, guid: ac86f8f1409e3234c939d160658d2b3a, type: 3}
-  enemyCircleAmount: 16
+  enemyCircleAmount: 32
 --- !u!1 &2013105448
 GameObject:
   m_ObjectHideFlags: 0

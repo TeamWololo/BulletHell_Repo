@@ -147,6 +147,7 @@ public class AISpawnManager : MonoBehaviour
         GameObject genAI = Instantiate(ai, aiPosition, ai.transform.rotation);
         if (aiType == AIType.LASERAI)
         {
+            genAI.transform.Rotate(new Vector3(0.0f, 0.0f, 1.0f), 180.0f);
             genAI.transform.rotation = Quaternion.FromToRotation(genAI.transform.up, direction);
         }
     }

@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e99d5426401310429e5f3ef912338dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyBullet: {fileID: 3358583437031264141, guid: 55ba5acd4c31a97479d56f70ed84253d, type: 3}
   damage: 10
 --- !u!114 &261883017590406006
 MonoBehaviour:
