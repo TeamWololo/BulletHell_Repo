@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
@@ -32,5 +33,14 @@ public class Player : MonoBehaviour
     void Update()
     {
         CheckDeath();
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        GameObject go = other.gameObject;
+        if (go.layer == (int)BLLayer.BL_ENVIROMENTLASER)
+        {
+            Health -= 20.0f;
+        }
     }
 }

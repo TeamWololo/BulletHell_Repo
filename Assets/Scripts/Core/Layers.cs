@@ -5,4 +5,5 @@ public enum BLLayer
     BL_ENEMYBULLET = 9,
     BL_ENEMY = 10,
     BL_PLAYERLASER = 11,
+    BL_ENVIROMENTLASER = 12
 }
