@@ -11,7 +11,7 @@ public static class SaveSystem
         FileStream stream = new FileStream(path, FileMode.Create);
 
         PlayerData data = new PlayerData(currentLevel);
-        
+
         formatter.Serialize(stream, data);
         stream.Close();
     }
@@ -21,7 +21,7 @@ public static class SaveSystem
         string path = Application.persistentDataPath + "/player.bin";
         if (!File.Exists(path))
         {
-            Debug.LogError("Cant found save file");
+            Debug.LogError("Can't find save file");
             return null;
         }
 
@@ -30,7 +30,7 @@ public static class SaveSystem
 
         PlayerData data = formatter.Deserialize(stream) as PlayerData;
         stream.Close();
-        
+
         return data;
     }
 }
