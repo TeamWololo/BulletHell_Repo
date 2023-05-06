@@ -4,6 +4,7 @@ using UnityEngine;
 public class LaserEnemy : MonoBehaviour
 {
     [SerializeField] private float damage = 10.0f;
+    [SerializeField] private float firerate = 1.0f;
 
     private Enemy _enemyBase;
 
@@ -34,7 +35,7 @@ public class LaserEnemy : MonoBehaviour
     {
         elapsedTime += Time.deltaTime;
 
-        if (elapsedTime >= 1.5f)
+        if (elapsedTime > firerate)
         {
             Fire();
             elapsedTime = 0.0f;

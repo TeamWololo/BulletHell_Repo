@@ -14,8 +14,8 @@ public class AISpawnManager : MonoBehaviour
     [Header("Debug")] 
     [SerializeField] private bool isDebug = true;
     [SerializeField] private float sphereRadiusSize = 0.5f;
-
-    [SerializeField] private Transform parent;
+    
+    [Header("AI Variables")]
     [SerializeField] private GameObject laserAI;
     [SerializeField] private bool spawnLaserAI;
     [SerializeField] private GameObject fireHemisphereAI;
@@ -24,6 +24,13 @@ public class AISpawnManager : MonoBehaviour
     [SerializeField] private bool spawnSpiralAI;
     [SerializeField] private GameObject fireDoubleSpiralAI;
     [SerializeField] private bool spawnDoubleSpiralAI;
+
+    [Header("Boss")] 
+    [SerializeField] private GameObject bossPrefab;
+    [SerializeField] private int deadCountToBossSpawn = 20;
+    
+    [Header("Variables")]
+    [SerializeField] private Transform parent;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private float thresholdForBounds = 1.0f;
     
@@ -36,6 +43,7 @@ public class AISpawnManager : MonoBehaviour
     private float aiTime = 3.0f;
     private AIType aiType = AIType.LASERAI;
     private bool canSpawn = true;
+    private bool isBossSpawn = false;
     
     // Start is called before the first frame update
     void Start()
@@ -155,15 +163,47 @@ public class AISpawnManager : MonoBehaviour
         }
     }
 
+    bool CheckIfBossCanSpawn()
+    {
+        int childSize = parent.childCount;
+        int deadCounter = 0;
+        
+        for (int i = 0; i < childSize; i++)
+        {
+            if (!parent.GetChild(i).gameObject.activeInHierarchy)
+            {
+                deadCounter++;
+            }
+        }
+
+        if (deadCounter >= deadCountToBossSpawn)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
     // Update is called once per frame
     void Update()
     {
-        aiTimer += Time.deltaTime;
-
-        if (aiTimer >= aiTime)
+        if (CheckIfBossCanSpawn() && !isBossSpawn)
         {
-            AISpawn();
-            aiTimer = 0.0f;
+            isBossSpawn = true;
+            Instantiate(bossPrefab);
+        }
+        
+        if(!isBossSpawn)
+        {
+            aiTimer += Time.deltaTime;
+
+            if (aiTimer >= aiTime)
+            {
+                AISpawn();
+                aiTimer = 0.0f;
+            }
         }
     }
 

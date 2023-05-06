@@ -1,5 +1,3 @@
-using System;
-using System.Timers;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
@@ -29,6 +27,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (col.gameObject.layer == (int)BLLayer.BL_PLAYERBULLET)
         {
+            col.gameObject.SetActive(false);
             this.gameObject.SetActive(false);
         }
 

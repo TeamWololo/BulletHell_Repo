@@ -5,6 +5,7 @@ public class FireSpiral : MonoBehaviour
 {
     [SerializeField] private float angleStep = 10.0f;
     [SerializeField] private float damage = 15.0f;
+    [SerializeField] private float firerateForEveryCircle = 0.07f;
     
     private float angle = 0.0f;
     private float elapsedTime = 0.0f;
@@ -37,7 +38,7 @@ public class FireSpiral : MonoBehaviour
     {
         elapsedTime += Time.deltaTime;
 
-        if (elapsedTime >= 0.07f)
+        if (elapsedTime > firerateForEveryCircle)
         {
             Fire();
             elapsedTime = 0.0f;

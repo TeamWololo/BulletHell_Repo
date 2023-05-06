@@ -7,8 +7,10 @@ public class FireHemisphere : MonoBehaviour
 
     [Header("Fire Variables")] 
     [SerializeField] private int ammo = 10;
+    [SerializeField] private float rotateValue = 270.0f;
     [SerializeField] private float startAngle = 90.0f;
     [SerializeField] private float endAngle = 270.0f;
+    [SerializeField] private float firerate = 1.0f;
     
     private float elapsedTime = 0.0f;
     
@@ -28,7 +30,7 @@ public class FireHemisphere : MonoBehaviour
             Vector3 bulletMoveVector = new Vector3(bulletDirX, bulletDirY, 0.0f);
             Vector3 bulletDirection = (bulletMoveVector - pos).normalized;
             
-            rotationEuler.z -= angle - 90.0f;
+            rotationEuler.z -= angle - rotateValue;
             Quaternion laserRotation = Quaternion.Euler(rotationEuler);
             
             EnemyBullet enemyBullet = BulletPool.Instance.GetEnemyLaserBullet();
@@ -50,7 +52,7 @@ public class FireHemisphere : MonoBehaviour
     {
         elapsedTime += Time.deltaTime;
 
-        if (elapsedTime >= 1f)
+        if (elapsedTime > firerate)
         {
             Fire();
             elapsedTime = 0.0f;

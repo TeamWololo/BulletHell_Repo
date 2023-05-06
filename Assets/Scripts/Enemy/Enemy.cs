@@ -4,7 +4,9 @@ public class Enemy : MonoBehaviour
 {
     public float speed = 10.0f;
     [SerializeField] private float maxHealth = 100.0f;
-    [SerializeField] [Range(0.0f, 100.0f)] private float percentageSpeed = 1.0f; 
+    [SerializeField] [Range(0.0f, 100.0f)] private float percentageSpeed = 1.0f;
+    [SerializeField] private bool isBoss = false;
+    [SerializeField] private float viewportThreshold = 1.0f;
 
     private float health = 100.0f;
 
@@ -17,7 +19,7 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0.0f)
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
 
         if (!ViewportManager.Instance.IsInsideViewport(this.transform.position, 10.0f))
@@ -29,9 +31,12 @@ public class Enemy : MonoBehaviour
     void GetInViewport()
     {
         Vector3 position = this.transform.position;
-        if (ViewportManager.Instance.IsInsideViewport(position, -1.0f))
+        if (ViewportManager.Instance.IsInsideViewport(position, -1.0f * viewportThreshold))
         {
-            transform.position += transform.up * (speed * (percentageSpeed / 100.0f) * Time.deltaTime);
+            if (!isBoss)
+            {
+                transform.position += transform.up * (speed * (percentageSpeed / 100.0f) * Time.deltaTime);
+            }
             return;
         }
         
