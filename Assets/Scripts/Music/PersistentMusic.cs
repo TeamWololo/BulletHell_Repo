@@ -4,8 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class PersistentMusic : MonoBehaviour
 {
-    public List<string> sceneNames;
-    public string instanceName;
+    [SerializeField] private List<string> sceneNames;
+    [SerializeField] private string instanceName;
+    [SerializeField] private AudioSource Source;
+    [SerializeField] private AudioClip LevelTwoMusic;
+    [SerializeField] private AudioClip LevelThreeMusic;
 
     private void Start()
     {
@@ -17,6 +20,7 @@ public class PersistentMusic : MonoBehaviour
     {
         CheckForDuplicateInstances();
         CheckIfSceneInList();
+        ChangeSceneMusic();
     }
 
     void CheckForDuplicateInstances()
@@ -43,6 +47,25 @@ public class PersistentMusic : MonoBehaviour
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
             DestroyImmediate(this.gameObject);
+        }
+    }
+
+    void ChangeSceneMusic()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (currentScene == "Level_02")
+        {
+            Source.Stop();
+            Source.clip = LevelTwoMusic;
+            Source.Play();
+        }
+
+        else if (currentScene == "Level_02")
+        {
+            Source.Stop();
+            Source.clip = LevelThreeMusic;
+            Source.Play();
         }
     }
 }
