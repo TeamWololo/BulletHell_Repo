@@ -200,6 +200,7 @@ public class AISpawnManager : MonoBehaviour
 
         if (isBossSpawn && !boss.activeInHierarchy)
         {
+            SaveSystem.SavePlayer(nextLevel);
             SceneManager.LoadScene(nextLevel);
         }
         
