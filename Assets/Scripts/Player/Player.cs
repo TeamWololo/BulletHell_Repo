@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     [SerializeField] float speed = 10.0f;
     [SerializeField] private float maxHealth = 100.0f;
 
+    public HealthBar healthBar;
+
     public float Health = 100.0f;
 
     public float Speed
@@ -26,13 +28,14 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
         CheckDeath();
+        healthBar.SetHealth(Health);
     }
 
     private void OnTriggerStay2D(Collider2D other)
