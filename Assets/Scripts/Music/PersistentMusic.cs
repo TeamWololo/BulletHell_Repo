@@ -61,7 +61,7 @@ public class PersistentMusic : MonoBehaviour
             Source.Play();
         }
 
-        else if (currentScene == "Level_02")
+        else if (currentScene == "Level_03")
         {
             Source.Stop();
             Source.clip = LevelThreeMusic;
