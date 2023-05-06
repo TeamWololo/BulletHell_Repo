@@ -4,10 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PersistentMusic : MonoBehaviour
 {
-    [Tooltip("List of scenes this object should transition to")]
     public List<string> sceneNames;
-
-    [Tooltip("Unique string that must be shared between scenes")]
     public string instanceName;
 
     private void Start()
