@@ -229,6 +229,7 @@ MonoBehaviour:
   bossPrefab: {fileID: 6232542634955206549, guid: 7ec697a0400a10e4f8f31d167e34b77b, type: 3}
   deadCountToBossSpawn: 3
   parent: {fileID: 1038026768}
+  nextLevel: MainMenu
   playerTransform: {fileID: 1818795831}
   thresholdForBounds: 0.5
 --- !u!1 &447295796
