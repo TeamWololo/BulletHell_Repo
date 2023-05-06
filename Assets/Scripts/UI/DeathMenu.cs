@@ -10,7 +10,7 @@ public class DeathMenu : MonoBehaviour
 
     void Update()
     {
-        if (Player.Health == 0)
+        if (Player.Health <= 0)
         {
             deathMenuUI.SetActive(true);
         }
