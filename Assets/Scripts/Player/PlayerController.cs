@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speedIncDecSize = 0.5f;
     [SerializeField] private float firerate = 0.2f;
 
-    [Header("Laser")] 
+    [Header("Laser")]
     [SerializeField] private float laserTimeToAlive = 2.0f;
     [SerializeField] private LineRenderer laserRenderer;
     [SerializeField] private BoxCollider2D laserCollider;
@@ -18,7 +18,9 @@ public class PlayerController : MonoBehaviour
     private Player _player;
     private float timestamp = Mathf.Infinity;
     private uint ballisticCounter = 0;
+    public uint BallisticCounter => ballisticCounter;
     private uint playerLaserCounter = 0;
+    public uint PlayerLaserCounter => playerLaserCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -40,29 +42,29 @@ public class PlayerController : MonoBehaviour
             _player.Speed = _player.Speed - speedIncDecSize < minSpeed ? minSpeed : _player.Speed - speedIncDecSize;
         }
     }
-    
+
     Vector3 GetNewPosition(Vector3 currentPosition)
     {
         if (Input.GetKey(KeyCode.D))
         {
             currentPosition.x += (_player.Speed * Time.deltaTime);
         }
-        
+
         if (Input.GetKey(KeyCode.A))
         {
             currentPosition.x -= (_player.Speed * Time.deltaTime);
         }
-        
+
         if (Input.GetKey(KeyCode.W))
         {
             currentPosition.y += (_player.Speed * Time.deltaTime);
         }
-        
+
         if (Input.GetKey(KeyCode.S))
         {
             currentPosition.y -= (_player.Speed * Time.deltaTime);
         }
-        
+
         ViewportManager.Instance.ClampInViewport(ref currentPosition, boundaryThreshold);
 
         return currentPosition;
@@ -78,15 +80,15 @@ public class PlayerController : MonoBehaviour
         {
             float bulletDirX = pos.x + Mathf.Sin((angle * Mathf.PI) / 180.0f);
             float bulletDirY = pos.y + Mathf.Cos((angle * Mathf.PI) / 180.0f);
-            
+
             Vector3 bulletMoveVector = new Vector3(bulletDirX, bulletDirY, 0.0f);
             Vector3 bulletDirection = (bulletMoveVector - pos).normalized;
-            
+
             Quaternion laserRotation = Quaternion.FromToRotation(this.transform.up, bulletDirection);
-            
+
             PlayerBullet ballisticBullet = BulletPool.Instance.GetBallisticBullet();
             if (!ballisticBullet) return;
-        
+
             ballisticBullet.transform.position = pos;
             ballisticBullet.transform.rotation = laserRotation;
             ballisticBullet.MoveDirection = bulletDirection;
@@ -123,7 +125,7 @@ public class PlayerController : MonoBehaviour
             timestamp = Time.time + firerate;
         }
     }
-    
+
     void CheckActions()
     {
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
@@ -134,7 +136,7 @@ public class PlayerController : MonoBehaviour
             bullet.gameObject.SetActive(true);
             timestamp = Time.time + firerate;
         }
-        
+
         CheckFire();
 
         if (Input.GetKeyDown(KeyCode.B))
@@ -171,7 +173,7 @@ public class PlayerController : MonoBehaviour
             laserCollider.enabled = false;
             laserElapsedTime = 0.0f;
         }
-        
+
         CheckActions();
         ControlSpeed();
         this.transform.position = GetNewPosition(this.transform.position);
@@ -195,7 +197,7 @@ public class PlayerController : MonoBehaviour
         {
             playerLaserCounter++;
         }
-        
+
         go.SetActive(false);
     }
 }// end of PlayerController

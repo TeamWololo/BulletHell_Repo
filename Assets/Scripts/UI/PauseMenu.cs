@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
-    public static bool gamePaused = false;
-    public GameObject pauseMenuUI;
-
-    public GameObject deathMenuUI;
+    private bool gamePaused = false;
+    [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private GameObject deathMenuUI;
 
     void Update()
     {

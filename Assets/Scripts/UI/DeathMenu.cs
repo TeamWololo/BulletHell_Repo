@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class DeathMenu : MonoBehaviour
 {
     [SerializeField] private Player Player;
-    public GameObject deathMenuUI;
+    [SerializeField] private GameObject deathMenuUI;
 
     void Update()
     {
