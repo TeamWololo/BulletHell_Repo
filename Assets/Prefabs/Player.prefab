@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1373198339401381270}
   - component: {fileID: 1373198339401381269}
+  - component: {fileID: 7036393899739186306}
   - component: {fileID: 1373198339401381256}
   - component: {fileID: 1373198339401381271}
   - component: {fileID: 9079519043153474177}
@@ -89,6 +90,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7036393899739186306
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373198339401381268}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 27b5d0a66d44fb74cbd13308e10f5e38, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &1373198339401381256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +125,8 @@ MonoBehaviour:
   minSpeed: 10
   boundaryThreshold: 0.69
   speedIncDecSize: 1
+  firerate: 0.2
+  laserTimeToAlive: 2
   laserRenderer: {fileID: 4961030239530777096}
   laserCollider: {fileID: 3843885659969526426}
 --- !u!114 &1373198339401381271
@@ -120,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   maxHealth: 100
+  healthBar: {fileID: 0}
   Health: 100
 --- !u!50 &9079519043153474177
 Rigidbody2D:

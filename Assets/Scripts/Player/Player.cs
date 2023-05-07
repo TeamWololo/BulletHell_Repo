@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
@@ -9,6 +10,9 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
 
     public float Health = 100.0f;
+
+    private Animator animator;
+    private static readonly int Explosion = Animator.StringToHash("expl");
 
     private void Awake()
     {
@@ -25,8 +29,15 @@ public class Player : MonoBehaviour
     {
         if (Health <= 0.0f)
         {
-            Destroy(this.gameObject);
+            StartExplosion();
+            StartCoroutine(Destroy());
         }
+    }
+
+    IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(1.0f);
+        Destroy(this.gameObject);
     }
 
     // Start is called before the first frame update
@@ -36,6 +47,17 @@ public class Player : MonoBehaviour
         {
             healthBar.SetMaxHealth(maxHealth);
         }
+
+        animator = GetComponent<Animator>();
+    }
+
+    void StartExplosion()
+    {
+        if (!animator)
+        {
+            animator = GetComponent<Animator>();
+        }
+        animator.SetBool(Explosion, true);
     }
 
     // Update is called once per frame
@@ -49,12 +71,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         GameObject go = other.gameObject;
         if (go.layer == BLLayers.environmentLaser)
         {
-            Health -= 20.0f;
+            Health -= 30.0f;
         }
     }
 }

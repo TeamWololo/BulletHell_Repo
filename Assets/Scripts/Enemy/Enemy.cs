@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.layer == BLLayers.playerBullet)
+        if (col.gameObject.layer == BLLayers.playerLaser)
         {
             health -= 31.0f;
         }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private float laserElapsedTime = 0.0f;
     private Player _player;
     private float timestamp = Mathf.Infinity;
+    private uint ballisticCounter = 0;
+    private uint playerLaserCounter = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -136,12 +139,22 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.B))
         {
+            if (ballisticCounter == 0)
+            {
+                return;
+            }
             FireBallistics();
+            ballisticCounter--;
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
+            if (playerLaserCounter == 0)
+            {
+                return;
+            }
             FireLaser();
+            playerLaserCounter--;
         }
     }
 
@@ -162,5 +175,27 @@ public class PlayerController : MonoBehaviour
         CheckActions();
         ControlSpeed();
         this.transform.position = GetNewPosition(this.transform.position);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        GameObject go = other.gameObject;
+
+        if (go.layer != BLLayers.pickup)
+        {
+            return;
+        }
+
+        if (go.CompareTag("BallisticPickup"))
+        {
+            ballisticCounter++;
+        }
+
+        if (go.CompareTag("PlayerLaserPickup"))
+        {
+            playerLaserCounter++;
+        }
+        
+        go.SetActive(false);
     }
 }// end of PlayerController
