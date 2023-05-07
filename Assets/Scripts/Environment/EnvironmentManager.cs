@@ -22,8 +22,21 @@ public class EnvironmentManager : MonoBehaviour
     [SerializeField] private float laserTime = 5.0f;
     private Vector3 laserAreaTopSide;
     private Vector3 laserAreaBottomSide;
-
     private float laserTimer = 0.0f;
+
+    [Header("BallisticWeapon")] 
+    [SerializeField] private GameObject ballisticPickup;
+    [SerializeField] private float ballisticMinTimeToSpawn = 10.0f;
+    [SerializeField] private float ballisticMaxTimeToSpawn = 20.0f;
+    private float ballisticPickupTimer = 0.0f;
+    private float ballisticTime = 0.0f;
+    
+    [Header("LaserWeapon")] 
+    [SerializeField] private GameObject playerLaserPickup;
+    [SerializeField] private float playerLaserMinTimeToSpawn = 15.0f;
+    [SerializeField] private float playerLaserMaxTimeToSpawn = 25.0f;
+    private float playerLaserPickupTimer = 0.0f;
+    private float playerLaserTime = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +50,9 @@ public class EnvironmentManager : MonoBehaviour
         astroidAreaRightSide = upperRight + new Vector3(0.0f, thresholdAstroidArea, 0.0f);
         laserAreaTopSide = upperLeft + new Vector3(-1.0f * thresholdLaserArea, 0.0f, 0.0f);
         laserAreaBottomSide = lowerLeft + new Vector3(-1.0f * thresholdLaserArea, 0.0f, 0.0f);
+
+        ballisticTime = Random.Range(ballisticMinTimeToSpawn, ballisticMaxTimeToSpawn);
+        playerLaserTime = Random.Range(playerLaserMinTimeToSpawn, playerLaserMaxTimeToSpawn);
     }
 
     void CreateAstroid()
@@ -44,7 +60,7 @@ public class EnvironmentManager : MonoBehaviour
         float randomPos = Random.Range(astroidAreaLeftSide.x, astroidAreaRightSide.x);
         GameObject genAstroid = Instantiate(astroid, new Vector3(randomPos, astroidAreaLeftSide.y, 0.0f), Quaternion.identity);
     }
-
+    
     void CreateLaser()
     {
         float randomPos = Random.Range(laserAreaTopSide.y, laserAreaBottomSide.y);
@@ -58,11 +74,35 @@ public class EnvironmentManager : MonoBehaviour
         Destroy(_laser);
     }
 
+    void CreateBallisticPickup()
+    {
+        float randomPos = Random.Range(astroidAreaLeftSide.x, astroidAreaRightSide.x);
+        GameObject genBallisticPickup = Instantiate(ballisticPickup, new Vector3(randomPos, astroidAreaLeftSide.y, 0.0f), Quaternion.identity);
+        ballisticTime = Random.Range(ballisticMinTimeToSpawn, ballisticMaxTimeToSpawn);
+        StartCoroutine(DestroyPickup(genBallisticPickup));
+    }
+
+    void CreatePlayerLaserPickup()
+    {
+        float randomPos = Random.Range(astroidAreaLeftSide.x, astroidAreaRightSide.x);
+        GameObject genPlayerLaserPickup = Instantiate(playerLaserPickup, new Vector3(randomPos, astroidAreaLeftSide.y, 0.0f), Quaternion.identity);
+        playerLaserTime = Random.Range(playerLaserMinTimeToSpawn, playerLaserMaxTimeToSpawn);
+        StartCoroutine(DestroyPickup(genPlayerLaserPickup));
+    }
+
+    IEnumerator DestroyPickup(GameObject pickup)
+    {
+        yield return new WaitForSeconds(10.0f);
+        Destroy(pickup);
+    }
+
     // Update is called once per frame
     void Update()
     {
         astroidTimer += Time.deltaTime;
         laserTimer += Time.deltaTime;
+        ballisticPickupTimer += Time.deltaTime;
+        playerLaserPickupTimer += Time.deltaTime;
         
         if (astroidTimer > astroidTime)
         {
@@ -74,6 +114,18 @@ public class EnvironmentManager : MonoBehaviour
         {
             CreateLaser();
             laserTimer = 0.0f;
+        }
+
+        if (ballisticPickupTimer > ballisticTime)
+        {
+            CreateBallisticPickup();
+            ballisticPickupTimer = 0.0f;
+        }
+
+        if (playerLaserPickupTimer > playerLaserTime)
+        {
+            CreatePlayerLaserPickup();
+            playerLaserPickupTimer = 0.0f;
         }
     }
 
