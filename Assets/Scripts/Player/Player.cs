@@ -32,14 +32,21 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthBar.SetMaxHealth(maxHealth);
+        if (healthBar)
+        {
+            healthBar.SetMaxHealth(maxHealth);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         CheckDeath();
-        healthBar.SetHealth(Health);
+
+        if (healthBar)
+        {
+            healthBar.SetHealth(Health);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)

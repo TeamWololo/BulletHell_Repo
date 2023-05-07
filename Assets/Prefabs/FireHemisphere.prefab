@@ -150,6 +150,8 @@ MonoBehaviour:
   speed: -10
   maxHealth: 100
   percentageSpeed: 15.4
+  isBoss: 0
+  viewportThreshold: 1
 --- !u!114 &7688973661606537500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,5 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   ammo: 5
+  rotateValue: 90
   startAngle: 90
   endAngle: 270
+  firerate: 1
