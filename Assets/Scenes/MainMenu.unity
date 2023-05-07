@@ -1862,6 +1862,8 @@ MonoBehaviour:
   playButton: {fileID: 1397053885}
   continueButton: {fileID: 1387386970}
   newGameButton: {fileID: 33279416}
+  optionsMenu: {fileID: 355931253}
+  defaultVolume: -30
 --- !u!1 &1292830236
 GameObject:
   m_ObjectHideFlags: 0
