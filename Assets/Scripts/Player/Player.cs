@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         GameObject go = other.gameObject;
-        if (go.layer == (int)BLLayer.BL_ENVIROMENTLASER)
+        if (go.layer == BLLayers.environmentLaser)
         {
             Health -= 20.0f;
         }

@@ -14,14 +14,12 @@ public class Astroid : MonoBehaviour
     {
         GameObject colGO = col.gameObject;
         
-        // Player
-        if (colGO.layer == (int)BLLayer.BL_PLAYER)
+        if (colGO.layer == BLLayers.player)
         {
             colGO.GetComponent<Player>().Health -= 300.0f;
         }
-
-        // PlayerBullet && EnemyBullet
-        if (colGO.layer == (int)BLLayer.BL_PLAYERBULLET || colGO.layer == (int)BLLayer.BL_ENEMYBULLET)
+        
+        if (colGO.layer == BLLayers.playerBullet || colGO.layer == BLLayers.enemyBullet)
         {
             colGO.SetActive(false);
         }

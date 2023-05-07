@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         GameObject colGO = col.gameObject;
-        if (colGO.layer == (int)BLLayer.BL_PLAYERBULLET)
+        if (colGO.layer == BLLayers.playerBullet)
         {
             health -= colGO.GetComponent<PlayerBullet>().damage;
             col.gameObject.SetActive(false);
@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.layer == (int)BLLayer.BL_PLAYERLASER)
+        if (col.gameObject.layer == BLLayers.playerBullet)
         {
             health -= 31.0f;
         }
