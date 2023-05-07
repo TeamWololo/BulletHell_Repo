@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
@@ -8,6 +7,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxHealth = 100.0f;
 
     public float Health = 100.0f;
+
+    private void Awake()
+    {
+        Health = maxHealth;
+    }
 
     public float Speed
     {
