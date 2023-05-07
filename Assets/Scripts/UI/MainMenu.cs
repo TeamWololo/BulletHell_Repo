@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    private PlayerData playerData = SaveSystem.LoadPlayer();
     [SerializeField] private GameObject playButton;
     [SerializeField] private GameObject continueButton;
     [SerializeField] private GameObject newGameButton;
+    private PlayerData playerData;
 
     void Start()
     {
+        playerData = SaveSystem.LoadPlayer();
+        
         if (playerData != null)
         {
             playButton.SetActive(false);
@@ -31,7 +33,7 @@ public class MainMenu : MonoBehaviour
 
     public void ContinueGame()
     {
-        SceneManager.LoadScene(SceneManager.GetSceneByName(playerData.level).buildIndex);
+        SceneManager.LoadScene(playerData.level);
     }
 
     public void QuitGame()
