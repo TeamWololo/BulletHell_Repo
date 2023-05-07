@@ -18,9 +18,9 @@ public class PlayerController : MonoBehaviour
     private Player _player;
     private float timestamp = Mathf.Infinity;
     private uint ballisticCounter = 0;
-    public uint BallisticCounter { get; }
+    public uint BallisticCounter => ballisticCounter;
     private uint playerLaserCounter = 0;
-    public uint PlayerLaserCounter { get; }
+    public uint PlayerLaserCounter => playerLaserCounter;
 
     // Start is called before the first frame update
     void Start()

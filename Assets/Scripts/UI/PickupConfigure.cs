@@ -9,10 +9,11 @@ public class PickupConfigure : MonoBehaviour
     [SerializeField] private TextMeshProUGUI RocketCounterText;
     [SerializeField] private GameObject LaserCounter;
     [SerializeField] private TextMeshProUGUI LaserCounterText;
-    private PlayerController playerController;
+    [SerializeField] private PlayerController playerController;
 
     void Update()
     {
+        Debug.Log(playerController.BallisticCounter);
         if (playerController.BallisticCounter > 0)
         {
             Debug.Log("Hi IF");
@@ -21,7 +22,6 @@ public class PickupConfigure : MonoBehaviour
         }
         else
         {
-            Debug.Log("Hi ELSE");
             RocketCounter.SetActive(false);
             RocketCounterText.text = playerController.BallisticCounter.ToString();
         }
