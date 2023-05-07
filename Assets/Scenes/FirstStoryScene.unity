@@ -1098,4 +1098,5 @@ MonoBehaviour:
   storyImage: {fileID: 43364446}
   secondStoryImage: {fileID: 1500164968}
   thirdStoryImage: {fileID: 109284459}
+  sceneTime: 5
   speed: 1
