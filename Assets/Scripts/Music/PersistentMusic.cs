@@ -62,6 +62,11 @@ public class PersistentMusic : MonoBehaviour
             Source.Play();
         }
 
+        else if (currentScene == "FirstStoryScene")
+        {
+            Source.Stop();
+        }
+
         else if (currentScene == "Level_01")
         {
             Source.Stop();
