@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
@@ -170,7 +171,8 @@ public class CanvasManager : MonoBehaviour
                 }
                 break;
             case StoryScenes.FINISHED:
-                return;
+                SceneManager.LoadScene("Level_01");
+                break;
         }
     }
 }

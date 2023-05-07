@@ -604,7 +604,7 @@ MonoBehaviour:
   deadCountToBossSpawn: 3
   parent: {fileID: 1038026768}
   nextLevel: MainMenu
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 1424313243}
   thresholdForBounds: 0.5
 --- !u!1 &376052507
 GameObject:
@@ -3021,6 +3021,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3766ca14df0ad448b31a76cbc3ba62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1424313243 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5037333665155499617, guid: 8705c027892ebbf4c96b139e9cf58ff6, type: 3}
+  m_PrefabInstance: {fileID: 1424313240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1448796249
 GameObject:
   m_ObjectHideFlags: 0

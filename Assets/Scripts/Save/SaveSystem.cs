@@ -21,7 +21,6 @@ public static class SaveSystem
         string path = Application.persistentDataPath + "/player.bin";
         if (!File.Exists(path))
         {
-            Debug.LogError("Can't find save file");
             return null;
         }
 

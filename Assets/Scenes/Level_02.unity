@@ -2081,6 +2081,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db9d60b1f403964db2782d0ccbb020c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &846164555 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5037333665155499617, guid: 8705c027892ebbf4c96b139e9cf58ff6, type: 3}
+  m_PrefabInstance: {fileID: 846164553}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &846164557 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5037333665155499647, guid: 8705c027892ebbf4c96b139e9cf58ff6, type: 3}
@@ -3123,7 +3128,7 @@ MonoBehaviour:
   deadCountToBossSpawn: 3
   parent: {fileID: 1665634021}
   nextLevel: Level_03
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 846164555}
   thresholdForBounds: 0.5
 --- !u!1 &1532435065
 GameObject:

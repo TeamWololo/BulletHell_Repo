@@ -31,12 +31,12 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene("Level_01");
+        SceneManager.LoadScene("FirstStoryScene");
     }
 
     public void NewGame()
     {
-        SceneManager.LoadScene("Level_01");
+        SceneManager.LoadScene("FirstStoryScene");
         File.Delete(Application.persistentDataPath + "/player.bin");
         StartCoroutine(MenuUpdate());
     }
