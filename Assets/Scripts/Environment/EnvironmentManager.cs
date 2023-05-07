@@ -69,7 +69,7 @@ public class EnvironmentManager : MonoBehaviour
 
     IEnumerator StartLaser()
     {
-        float randomPos = Random.Range(laserAreaTopSide.y, laserAreaBottomSide.y);
+        float randomPos = Random.Range(laserAreaBottomSide.y + 1.2f, laserAreaTopSide.y - 1.2f);
         GameObject genWarningSign = Instantiate(warningSign, new Vector3(laserAreaTopSide.x + 3 * thresholdLaserArea, randomPos, 0.0f), Quaternion.identity);
         yield return new WaitForSeconds(1.5f);
         Destroy(genWarningSign);

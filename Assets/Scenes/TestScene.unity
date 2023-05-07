@@ -667,14 +667,14 @@ MonoBehaviour:
   astroidTime: 3
   warningSign: {fileID: 2738267390044405920, guid: ebb4b803bbe5165479c7171646b98731, type: 3}
   laser: {fileID: 198835854024152364, guid: 517aca3474afa764282b76cd908ea4f8, type: 3}
-  thresholdLaserArea: 1
+  thresholdLaserArea: 1.59
   laserTime: 5
   ballisticPickup: {fileID: 6304074074677429411, guid: a8a5d37a328209d48aac0e395d6a0c90, type: 3}
   ballisticMinTimeToSpawn: 3
   ballisticMaxTimeToSpawn: 5
   playerLaserPickup: {fileID: 153911980820320996, guid: 613b12399cb02b94d8070a7794579188, type: 3}
-  playerLaserMinTimeToSpawn: 15
-  playerLaserMaxTimeToSpawn: 25
+  playerLaserMinTimeToSpawn: 1
+  playerLaserMaxTimeToSpawn: 3
 --- !u!1 &1624300079
 GameObject:
   m_ObjectHideFlags: 0
