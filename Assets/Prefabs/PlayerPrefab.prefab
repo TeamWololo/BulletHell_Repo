@@ -145,6 +145,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   maxHealth: 100
+  spriteRenderer: {fileID: 5037333665155499618}
+  timer:
+    timerDuration: 1
   healthBar: {fileID: 0}
   Health: 100
 --- !u!50 &2947129508246290806
