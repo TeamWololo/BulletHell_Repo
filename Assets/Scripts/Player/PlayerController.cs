@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Laser")]
     [SerializeField] private float laserTimeToAlive = 2.0f;
+    [SerializeField] private Transform fireToLaser;
+    [SerializeField] private Transform laserTransform;
     [SerializeField] private LineRenderer laserRenderer;
     [SerializeField] private BoxCollider2D laserCollider;
 
@@ -100,6 +102,7 @@ public class PlayerController : MonoBehaviour
 
     void FireLaser()
     {
+        laserTransform.position = fireToLaser.position;
         laserRenderer.enabled = true;
         laserCollider.enabled = true;
     }
