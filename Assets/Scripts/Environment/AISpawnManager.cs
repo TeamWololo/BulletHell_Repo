@@ -35,6 +35,7 @@ public class AISpawnManager : MonoBehaviour
     [SerializeField] private string nextLevel = "Level_02";
     [SerializeField] private Transform playerTransform;
     [SerializeField] private float thresholdForBounds = 1.0f;
+    [SerializeField] private float aiTime = 3.0f;
     
     private Vector3 bottomLeft;
     private Vector3 upperLeft;
@@ -42,7 +43,6 @@ public class AISpawnManager : MonoBehaviour
     private Vector3 bottomRight;
 
     private float aiTimer = 0.0f;
-    private float aiTime = 3.0f;
     private GameObject boss;
     private AIType aiType = AIType.LASERAI;
     private bool canSpawn = true;

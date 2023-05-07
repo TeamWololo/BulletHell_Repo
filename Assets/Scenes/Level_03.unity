@@ -4327,14 +4327,14 @@ MonoBehaviour:
   sphereRadiusSize: 0.5
   astroid: {fileID: 8257097125588536562, guid: a9dbec02dc818e44eac82bf528f4b5f1, type: 3}
   thresholdAstroidArea: 1
-  astroidTime: 3
+  astroidTime: 4
   warningSign: {fileID: 2738267390044405920, guid: ebb4b803bbe5165479c7171646b98731, type: 3}
   laser: {fileID: 8432715747602888209, guid: be4b18b8eb5ff134d8bc5a367886274d, type: 3}
   thresholdLaserArea: 1
-  laserTime: 5
+  laserTime: 10
   ballisticPickup: {fileID: 6304074074677429411, guid: a8a5d37a328209d48aac0e395d6a0c90, type: 3}
-  ballisticMinTimeToSpawn: 10
-  ballisticMaxTimeToSpawn: 20
+  ballisticMinTimeToSpawn: 4
+  ballisticMaxTimeToSpawn: 13
   playerLaserPickup: {fileID: 153911980820320996, guid: 613b12399cb02b94d8070a7794579188, type: 3}
-  playerLaserMinTimeToSpawn: 15
-  playerLaserMaxTimeToSpawn: 25
+  playerLaserMinTimeToSpawn: 9
+  playerLaserMaxTimeToSpawn: 19

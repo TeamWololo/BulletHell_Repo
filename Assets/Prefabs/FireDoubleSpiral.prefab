@@ -101,8 +101,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHealth: 100
+  maxHealth: 175
   percentageSpeed: 0
+  isBoss: 0
+  viewportThreshold: 1
 --- !u!114 &66688067106385802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angleStep: 10
   damage: 15
+  firerateForEveryCircle: 0.07
 --- !u!50 &7573520171233286435
 Rigidbody2D:
   serializedVersion: 4
