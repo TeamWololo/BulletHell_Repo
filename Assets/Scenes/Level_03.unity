@@ -601,11 +601,12 @@ MonoBehaviour:
   fireDoubleSpiralAI: {fileID: 1786602464113711024, guid: e2789f1db6d1e3a458bb9732d94bf955, type: 3}
   spawnDoubleSpiralAI: 1
   bossPrefab: {fileID: 6232542634955206549, guid: 7ec697a0400a10e4f8f31d167e34b77b, type: 3}
-  deadCountToBossSpawn: 3
+  deadCountToBossSpawn: 35
   parent: {fileID: 1038026768}
   nextLevel: LastStoryScene
   playerTransform: {fileID: 1424313243}
   thresholdForBounds: 0.5
+  aiTime: 3
 --- !u!1 &376052507
 GameObject:
   m_ObjectHideFlags: 0

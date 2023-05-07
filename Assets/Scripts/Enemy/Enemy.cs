@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
     {
         if (col.gameObject.layer == BLLayers.playerLaser)
         {
-            health -= 31.0f;
+            health -= 1.0f;
         }
     }
 }
