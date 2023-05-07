@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        if (playerData.level != null)
+        if (playerData != null)
         {
             playButton.SetActive(false);
             continueButton.SetActive(true);
@@ -21,7 +21,12 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Level_01");
+    }
+
+    public void NewGame()
+    {
+        SceneManager.LoadScene("Level_01");
     }
 
     public void ContinueGame()

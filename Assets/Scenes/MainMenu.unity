@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &33279417
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1859,8 +1859,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d07ccb6d3490c4e8aeae4a5788cb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData:
-    level: 
+  playButton: {fileID: 1397053885}
+  continueButton: {fileID: 1387386970}
+  newGameButton: {fileID: 33279416}
 --- !u!1 &1292830236
 GameObject:
   m_ObjectHideFlags: 0
@@ -2174,7 +2175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1387386971
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2242,7 +2243,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1002036277}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: ContinueGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2308,7 +2309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1397053886
 RectTransform:
   m_ObjectHideFlags: 0
