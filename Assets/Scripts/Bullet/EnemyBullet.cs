@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
@@ -6,6 +7,7 @@ public class EnemyBullet : MonoBehaviour
 
     public float damage = 10.0f;
     public Vector3 MoveDirection = Vector3.down;
+    
 
     void CheckOutside()
     {
@@ -34,7 +36,10 @@ public class EnemyBullet : MonoBehaviour
         if (col.gameObject.layer == BLLayers.player)
         {
             col.gameObject.GetComponent<Player>().Health -= damage;
+            col.gameObject.GetComponent<Player>().ChangeColorOnDamageDealt();
             this.gameObject.SetActive(false);
         }
     }
+
+    
 }

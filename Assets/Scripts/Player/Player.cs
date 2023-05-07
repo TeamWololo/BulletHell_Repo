@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float speed = 10.0f;
     [SerializeField] private float maxHealth = 100.0f;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private WanderTimer.TimerUtility timer;
 
     public HealthBar healthBar;
 
@@ -49,6 +51,7 @@ public class Player : MonoBehaviour
         }
 
         animator = GetComponent<Animator>();
+        timer.ForceDone();
     }
 
     void StartExplosion()
@@ -69,6 +72,9 @@ public class Player : MonoBehaviour
         {
             healthBar.SetHealth(Health);
         }
+
+        spriteRenderer.color = Color.Lerp(Color.red, Color.white, timer.NormalizedTime * timer.NormalizedTime);
+        timer.Update(Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -78,5 +84,10 @@ public class Player : MonoBehaviour
         {
             Health -= 30.0f;
         }
+    }
+
+    public void ChangeColorOnDamageDealt()
+    {
+        timer.Restart();
     }
 }
