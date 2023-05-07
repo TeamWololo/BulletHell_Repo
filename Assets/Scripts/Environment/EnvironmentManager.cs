@@ -13,10 +13,10 @@ public class EnvironmentManager : MonoBehaviour
     [SerializeField] private float astroidTime = 3.0f;
     private Vector3 astroidAreaLeftSide;
     private Vector3 astroidAreaRightSide;
-    
     private float astroidTimer = 0.0f;
 
     [Header("Laser")] 
+    [SerializeField] private GameObject warningSign;
     [SerializeField] private GameObject laser;
     [SerializeField] private float thresholdLaserArea = 1.0f;
     [SerializeField] private float laserTime = 5.0f;
@@ -63,15 +63,18 @@ public class EnvironmentManager : MonoBehaviour
     
     void CreateLaser()
     {
-        float randomPos = Random.Range(laserAreaTopSide.y, laserAreaBottomSide.y);
-        GameObject genLaser = Instantiate(laser, new Vector3(laserAreaTopSide.x, randomPos, 0.0f), Quaternion.identity);
-        StartCoroutine(DestroyLaser(genLaser));
+        StartCoroutine(StartLaser());
     }
 
-    IEnumerator DestroyLaser(GameObject _laser)
+    IEnumerator StartLaser()
     {
+        float randomPos = Random.Range(laserAreaTopSide.y, laserAreaBottomSide.y);
+        GameObject genWarningSign = Instantiate(warningSign, new Vector3(laserAreaTopSide.x + 3 * thresholdLaserArea, randomPos, 0.0f), Quaternion.identity);
+        yield return new WaitForSeconds(1.5f);
+        Destroy(genWarningSign);
+        GameObject genLaser = Instantiate(laser, new Vector3(laserAreaTopSide.x, randomPos, 0.0f), Quaternion.identity);
         yield return new WaitForSeconds(3.0f);
-        Destroy(_laser);
+        Destroy(genLaser);
     }
 
     void CreateBallisticPickup()
