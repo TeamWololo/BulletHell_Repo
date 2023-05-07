@@ -13,10 +13,8 @@ public class PickupConfigure : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(playerController.BallisticCounter);
         if (playerController.BallisticCounter > 0)
         {
-            Debug.Log("Hi IF");
             RocketCounter.SetActive(true);
             RocketCounterText.text = playerController.BallisticCounter.ToString();
         }

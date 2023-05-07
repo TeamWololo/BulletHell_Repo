@@ -11,10 +11,15 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject newGameButton;
     [SerializeField] private OptionsMenu optionsMenu;
     [SerializeField] private float defaultVolume = -30f;
+    private static bool defaultVolumeSet = false;
     private PlayerData playerData;
     void Start()
     {
-        optionsMenu.SetVolume(defaultVolume);
+        if (!defaultVolumeSet)
+        {
+            optionsMenu.SetVolume(defaultVolume);
+            defaultVolumeSet = true;
+        }
         playerData = SaveSystem.LoadPlayer();
 
         if (playerData != null)
