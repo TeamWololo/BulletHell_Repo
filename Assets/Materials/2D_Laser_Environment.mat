@@ -35,7 +35,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _LaserEdgeSmoothness: 200
-    - _LaserThickness: 2.24
+    - _LaserThickness: 0.17
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - BallisticPickup
   - PlayerLaserPickup
+  - PlayerLaser
+  - EnvLaser
   layers:
   - Default
   - TransparentFX

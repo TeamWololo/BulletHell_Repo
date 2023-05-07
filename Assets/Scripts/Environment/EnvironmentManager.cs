@@ -73,7 +73,7 @@ public class EnvironmentManager : MonoBehaviour
         GameObject genWarningSign = Instantiate(warningSign, new Vector3(laserAreaTopSide.x + 3 * thresholdLaserArea, randomPos, 0.0f), Quaternion.identity);
         yield return new WaitForSeconds(1.5f);
         Destroy(genWarningSign);
-        GameObject genLaser = Instantiate(laser, new Vector3(laserAreaTopSide.x, randomPos, 0.0f), Quaternion.identity);
+        GameObject genLaser = Instantiate(laser, new Vector3(laserAreaTopSide.x, randomPos, 0.0f), laser.transform.rotation);
         yield return new WaitForSeconds(3.0f);
         Destroy(genLaser);
     }
