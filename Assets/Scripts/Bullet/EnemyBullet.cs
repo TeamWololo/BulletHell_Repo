@@ -25,13 +25,13 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.layer == (int)BLLayer.BL_PLAYERBULLET)
+        if (col.gameObject.layer == BLLayers.playerBullet)
         {
             col.gameObject.SetActive(false);
             this.gameObject.SetActive(false);
         }
 
-        if (col.gameObject.layer == (int)BLLayer.BL_PLAYER)
+        if (col.gameObject.layer == BLLayers.player)
         {
             col.gameObject.GetComponent<Player>().Health -= damage;
             this.gameObject.SetActive(false);

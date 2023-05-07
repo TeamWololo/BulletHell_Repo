@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
@@ -10,6 +9,11 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
 
     public float Health = 100.0f;
+
+    private void Awake()
+    {
+        Health = maxHealth;
+    }
 
     public float Speed
     {
@@ -28,20 +32,27 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthBar.SetMaxHealth(maxHealth);
+        if (healthBar)
+        {
+            healthBar.SetMaxHealth(maxHealth);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         CheckDeath();
-        healthBar.SetHealth(Health);
+
+        if (healthBar)
+        {
+            healthBar.SetHealth(Health);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
         GameObject go = other.gameObject;
-        if (go.layer == (int)BLLayer.BL_ENVIROMENTLASER)
+        if (go.layer == BLLayers.environmentLaser)
         {
             Health -= 20.0f;
         }
