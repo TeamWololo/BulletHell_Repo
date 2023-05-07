@@ -38,6 +38,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
+        gamePaused = false;
         Time.timeScale = 1f;
         pauseMenuUI.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -45,6 +46,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        gamePaused = false;
         Time.timeScale = 1f;
         pauseMenuUI.SetActive(false);
         SceneManager.LoadScene(0);
