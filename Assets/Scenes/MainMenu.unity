@@ -1601,6 +1601,7 @@ MonoBehaviour:
   - Level_03
   instanceName: Level1Music
   Source: {fileID: 1292830237}
+  LevelOneMusic: {fileID: 8300000, guid: 2867bd4ee3705cc40b67e20c6fe809e2, type: 3}
   LevelTwoMusic: {fileID: 8300000, guid: 8aaa265ca6bfbdc41b591cb914127c2b, type: 3}
   LevelThreeMusic: {fileID: 8300000, guid: 7b4fa476215db534c96b9c85b943259f, type: 3}
 --- !u!1 &1292869634

@@ -7,6 +7,7 @@ public class PersistentMusic : MonoBehaviour
     [SerializeField] private List<string> sceneNames;
     [SerializeField] private string instanceName;
     [SerializeField] private AudioSource Source;
+    [SerializeField] private AudioClip LevelOneMusic;
     [SerializeField] private AudioClip LevelTwoMusic;
     [SerializeField] private AudioClip LevelThreeMusic;
 
@@ -54,7 +55,21 @@ public class PersistentMusic : MonoBehaviour
     {
         string currentScene = SceneManager.GetActiveScene().name;
 
-        if (currentScene == "Level_02")
+        if (currentScene == "MainMenu")
+        {
+            Source.Stop();
+            Source.clip = LevelOneMusic;
+            Source.Play();
+        }
+
+        else if (currentScene == "Level_01")
+        {
+            Source.Stop();
+            Source.clip = LevelOneMusic;
+            Source.Play();
+        }
+
+        else if (currentScene == "Level_02")
         {
             Source.Stop();
             Source.clip = LevelTwoMusic;
