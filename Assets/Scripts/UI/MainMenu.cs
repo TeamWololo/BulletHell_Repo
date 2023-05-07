@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,7 +14,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         playerData = SaveSystem.LoadPlayer();
-        
+
         if (playerData != null)
         {
             playButton.SetActive(false);
@@ -29,6 +30,8 @@ public class MainMenu : MonoBehaviour
     public void NewGame()
     {
         SceneManager.LoadScene("Level_01");
+        File.Delete(Application.persistentDataPath + "/player.bin");
+        StartCoroutine(MenuUpdate());
     }
 
     public void ContinueGame()
@@ -39,5 +42,12 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    IEnumerator MenuUpdate()
+    {
+        yield return new WaitForSeconds(1);
+        playButton.SetActive(true);
+        continueButton.SetActive(false);
+        newGameButton.SetActive(false);
     }
 }
