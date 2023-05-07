@@ -8,12 +8,12 @@ public class SliderUpdate : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private AudioMixer audioMixer;
-    void OnSceneLoaded()
+    void Start()
     {
-        slider.value = GetMasterLevel();
+        slider.value = GetMasterVolume();
     }
 
-    public float GetMasterLevel()
+    public float GetMasterVolume()
     {
         float value;
         bool result = audioMixer.GetFloat("masterVolume", out value);
