@@ -384,6 +384,7 @@ GameObject:
   m_Component:
   - component: {fileID: 147607051}
   - component: {fileID: 147607052}
+  - component: {fileID: 147607053}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -458,8 +459,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 1933691689}
   m_HandleRect: {fileID: 160123557}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 20
+  m_MinValue: -60
+  m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -477,6 +478,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &147607053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147607050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ec7b2c7f5ed950438b2b58d61898059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 147607052}
+  audioMixer: {fileID: 24100000, guid: bc04a18eb2dccd84eac59755d583983e, type: 2}
 --- !u!1 &160123556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,6 +1021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1110431158}
+  deathMenuUI: {fileID: 1846296878}
 --- !u!114 &425233379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3746,6 +3762,13 @@ MonoBehaviour:
   astroid: {fileID: 8257097125588536562, guid: a9dbec02dc818e44eac82bf528f4b5f1, type: 3}
   thresholdAstroidArea: 1
   astroidTime: 3
+  warningSign: {fileID: 0}
   laser: {fileID: 198835854024152364, guid: 517aca3474afa764282b76cd908ea4f8, type: 3}
   thresholdLaserArea: 1
   laserTime: 5
+  ballisticPickup: {fileID: 0}
+  ballisticMinTimeToSpawn: 10
+  ballisticMaxTimeToSpawn: 20
+  playerLaserPickup: {fileID: 0}
+  playerLaserMinTimeToSpawn: 15
+  playerLaserMaxTimeToSpawn: 25

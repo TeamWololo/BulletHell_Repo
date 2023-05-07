@@ -2140,6 +2140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1612294292}
   - component: {fileID: 1612294293}
+  - component: {fileID: 1612294294}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -2214,8 +2215,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 778231503}
   m_HandleRect: {fileID: 1462710367}
   m_Direction: 0
-  m_MinValue: 0.0001
-  m_MaxValue: 1
+  m_MinValue: -60
+  m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0.0001
   m_OnValueChanged:
@@ -2233,6 +2234,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1612294294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612294291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ec7b2c7f5ed950438b2b58d61898059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1612294293}
+  audioMixer: {fileID: 24100000, guid: bc04a18eb2dccd84eac59755d583983e, type: 2}
 --- !u!1 &1614341770
 GameObject:
   m_ObjectHideFlags: 0

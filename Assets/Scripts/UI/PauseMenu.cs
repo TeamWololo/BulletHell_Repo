@@ -7,8 +7,15 @@ public class PauseMenu : MonoBehaviour
     public static bool gamePaused = false;
     public GameObject pauseMenuUI;
 
+    public GameObject deathMenuUI;
+
     void Update()
     {
+        if (deathMenuUI.gameObject.activeInHierarchy == true)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gamePaused)
