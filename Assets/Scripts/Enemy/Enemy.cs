@@ -8,11 +8,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool isBoss = false;
     [SerializeField] private float viewportThreshold = 1.0f;
 
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private WanderTimer.TimerUtility timer;
+
     private float health = 100.0f;
 
     private void Awake()
     {
         health = maxHealth;
+        timer.ForceDone();
     }
 
     void CheckDeath()
@@ -48,6 +52,9 @@ public class Enemy : MonoBehaviour
     {
         CheckDeath();
         GetInViewport();
+
+        spriteRenderer.color = Color.Lerp(Color.red, Color.white, timer.NormalizedTime);
+        timer.Update(Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -56,6 +63,7 @@ public class Enemy : MonoBehaviour
         if (colGO.layer == BLLayers.playerBullet)
         {
             health -= colGO.GetComponent<PlayerBullet>().damage;
+            this.ChangeColorOnDamageDealt();
             col.gameObject.SetActive(false);
         }
     }
@@ -66,5 +74,10 @@ public class Enemy : MonoBehaviour
         {
             health -= 0.3f;
         }
+    }
+
+    public void ChangeColorOnDamageDealt()
+    {
+        timer.Restart();
     }
 }
