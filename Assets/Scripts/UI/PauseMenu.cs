@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class PauseMenu : MonoBehaviour
 {
     private bool gamePaused = false;
@@ -55,6 +55,7 @@ public class PauseMenu : MonoBehaviour
         gamePaused = false;
         Time.timeScale = 1f;
         pauseMenuUI.SetActive(false);
+        SaveSystem.SavePlayer(SceneManager.GetActiveScene().name, pauseMenuUI.GetComponentInChildren<SliderUpdate>().GetMasterVolume());
         SceneManager.LoadScene(0);
     }
 }
