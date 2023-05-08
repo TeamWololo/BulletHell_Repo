@@ -30,8 +30,8 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0.0f)
         {
-            StartExplosion();
             StartCoroutine(TimedDeactivate());
+            StartExplosion();
         }
 
         if (!ViewportManager.Instance.IsInsideViewport(this.transform.position, 10.0f))
@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator TimedDeactivate()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         this.gameObject.SetActive(false);
     }
     
