@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 66688067106385802}
   - component: {fileID: 7573520171233286435}
   - component: {fileID: 5802422592883059447}
+  - component: {fileID: -4432738787471397913}
   m_Layer: 10
   m_Name: FireDoubleSpiral
   m_TagString: Untagged
@@ -108,6 +109,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1786602464113711025}
   timer:
     timerDuration: 1
+  damagedColor: {r: 1, g: 0, b: 0, a: 1}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &66688067106385802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,3 +173,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6875, y: 1.875}
   m_EdgeRadius: 0
+--- !u!95 &-4432738787471397913
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786602464113711024}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 27b5d0a66d44fb74cbd13308e10f5e38, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
