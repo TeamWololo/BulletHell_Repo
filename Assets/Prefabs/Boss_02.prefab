@@ -106,6 +106,9 @@ MonoBehaviour:
   percentageSpeed: 1
   isBoss: 1
   viewportThreshold: 2
+  spriteRenderer: {fileID: 6641739369506953969}
+  timer:
+    timerDuration: 1
 --- !u!114 &6641739369506953971
 MonoBehaviour:
   m_ObjectHideFlags: 0
