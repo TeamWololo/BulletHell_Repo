@@ -10,6 +10,7 @@ public class LastCanvasManager : MonoBehaviour
     enum StoryScenes
     {
         FIRST_STORY,
+        SECOND_STORY,
         FINISHED
     }
     
@@ -104,21 +105,24 @@ public class LastCanvasManager : MonoBehaviour
 
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI storyText;
-
+    [SerializeField] private TextMeshProUGUI secondStoryText;
+    
     [Header("Image")]
     [SerializeField] private Image storyImage;
+    [SerializeField] private Image secondStoryImage;
 
     [Header("Variables")] 
     [SerializeField] private float sceneTime = 3.0f;
     [SerializeField] [Range(0.1f, 2.0f)] private float speed = 1.0f;
     
     private StoryScenes currentStory = StoryScenes.FIRST_STORY;
-    private Scene firstScene;
+    private Scene firstScene, secondScene;
 
     // Start is called before the first frame update
     void Start()
     {
         firstScene = new Scene(sceneTime, speed, storyText, storyImage);
+        secondScene = new Scene(sceneTime, speed, secondStoryText, secondStoryImage);
     }
 
     // Update is called once per frame
@@ -131,6 +135,9 @@ public class LastCanvasManager : MonoBehaviour
                 case StoryScenes.FIRST_STORY:
                     firstScene.isCompleted = true;
                     break;
+                case StoryScenes.SECOND_STORY:
+                    secondScene.isCompleted = true;
+                    break;
             }
         }
         
@@ -139,6 +146,13 @@ public class LastCanvasManager : MonoBehaviour
             case StoryScenes.FIRST_STORY:
                 firstScene.Start();
                 if (firstScene.isCompleted)
+                {
+                    currentStory = StoryScenes.SECOND_STORY;
+                }
+                break;
+            case StoryScenes.SECOND_STORY:
+                secondScene.Start();
+                if (secondScene.isCompleted)
                 {
                     currentStory = StoryScenes.FINISHED;
                 }
