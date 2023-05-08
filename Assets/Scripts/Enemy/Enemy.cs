@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private WanderTimer.TimerUtility timer;
+    [SerializeField] private Color damagedColor = Color.red;
+    [SerializeField] private Color defaultColor = Color.white;
 
     private float health = 100.0f;
 
@@ -53,7 +55,7 @@ public class Enemy : MonoBehaviour
         CheckDeath();
         GetInViewport();
 
-        spriteRenderer.color = Color.Lerp(Color.red, Color.white, timer.NormalizedTime);
+        spriteRenderer.color = Color.Lerp(damagedColor, defaultColor, timer.NormalizedTime);
         timer.Update(Time.deltaTime);
     }
 
