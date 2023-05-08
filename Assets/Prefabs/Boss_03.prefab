@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  maxHealth: 300
+  maxHealth: 500
   percentageSpeed: 1
   isBoss: 1
   viewportThreshold: 2
