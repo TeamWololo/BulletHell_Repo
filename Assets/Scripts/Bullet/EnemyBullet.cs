@@ -40,6 +40,4 @@ public class EnemyBullet : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
-
-    
 }

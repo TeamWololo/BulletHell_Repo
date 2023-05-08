@@ -4,6 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerController))]
 public class Player : MonoBehaviour
 {
+    [ColorUsageAttribute(true,true)]
+    [SerializeField] private Color damagedColor = Color.red;
+    [ColorUsageAttribute(true,true)]
+    [SerializeField] private Color defaultColor = Color.white;
     [SerializeField] float speed = 10.0f;
     [SerializeField] private float maxHealth = 100.0f;
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -73,7 +77,7 @@ public class Player : MonoBehaviour
             healthBar.SetHealth(Health);
         }
 
-        spriteRenderer.color = Color.Lerp(Color.red, Color.white, timer.NormalizedTime * timer.NormalizedTime);
+        spriteRenderer.color = Color.Lerp(damagedColor, defaultColor, timer.NormalizedTime * timer.NormalizedTime);
         timer.Update(Time.deltaTime);
     }
 
