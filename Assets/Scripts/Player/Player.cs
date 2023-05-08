@@ -81,12 +81,12 @@ public class Player : MonoBehaviour
         timer.Update(Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         GameObject go = other.gameObject;
         if (go.layer == BLLayers.environmentLaser)
         {
-            Health -= 30.0f;
+            Health -= 0.3f;
         }
     }
 
