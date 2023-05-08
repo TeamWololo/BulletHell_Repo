@@ -29,8 +29,9 @@ public class AISpawnManager : MonoBehaviour
     [Header("Boss")] 
     [SerializeField] private GameObject bossPrefab;
     [SerializeField] private int deadCountToBossSpawn = 20;
-    
-    [Header("Variables")]
+
+    [Header("Variables")] 
+    [SerializeField] private SliderUpdate musicSlider;
     [SerializeField] private Transform parent;
     [SerializeField] private string nextLevel = "Level_02";
     [SerializeField] private Transform playerTransform;
@@ -200,7 +201,7 @@ public class AISpawnManager : MonoBehaviour
 
         if (isBossSpawn && !boss.activeInHierarchy)
         {
-            SaveSystem.SavePlayer(nextLevel);
+            SaveSystem.SavePlayer(nextLevel, musicSlider.GetMasterVolume());
             SceneManager.LoadScene(nextLevel);
         }
         

@@ -602,6 +602,7 @@ MonoBehaviour:
   spawnDoubleSpiralAI: 1
   bossPrefab: {fileID: 6232542634955206549, guid: 7ec697a0400a10e4f8f31d167e34b77b, type: 3}
   deadCountToBossSpawn: 35
+  musicSlider: {fileID: 1887822989}
   parent: {fileID: 1038026768}
   nextLevel: LastStoryScene
   playerTransform: {fileID: 1424313243}

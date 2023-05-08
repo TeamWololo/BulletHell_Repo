@@ -24,6 +24,7 @@ public class MainMenu : MonoBehaviour
 
         if (playerData != null)
         {
+            optionsMenu.SetVolume(playerData.musicVolume);
             playButton.SetActive(false);
             continueButton.SetActive(true);
             newGameButton.SetActive(true);
