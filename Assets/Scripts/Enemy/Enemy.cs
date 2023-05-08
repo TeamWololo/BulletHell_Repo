@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -15,9 +16,13 @@ public class Enemy : MonoBehaviour
 
     private float health = 100.0f;
 
+    private Animator animator;
+    private static readonly int Explosion = Animator.StringToHash("expl");
+
     private void Awake()
     {
         health = maxHealth;
+        animator = GetComponent<Animator>();
         timer.ForceDone();
     }
 
@@ -25,13 +30,20 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0.0f)
         {
-            this.gameObject.SetActive(false);
+            StartExplosion();
+            StartCoroutine(TimedDeactivate());
         }
 
         if (!ViewportManager.Instance.IsInsideViewport(this.transform.position, 10.0f))
         {
             Destroy(this.gameObject);
         }
+    }
+
+    IEnumerator TimedDeactivate()
+    {
+        yield return new WaitForSeconds(1.0f);
+        this.gameObject.SetActive(false);
     }
     
     void GetInViewport()
@@ -81,5 +93,14 @@ public class Enemy : MonoBehaviour
     public void ChangeColorOnDamageDealt()
     {
         timer.Restart();
+    }
+
+    void StartExplosion()
+    {
+        if (!animator)
+        {
+            animator = GetComponent<Animator>();
+        }
+        animator.SetBool(Explosion, true);
     }
 }
