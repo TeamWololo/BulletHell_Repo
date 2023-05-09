@@ -17,6 +17,11 @@ public class LaserEnemy : MonoBehaviour
 
     void Fire()
     {
+        if (_enemyBase.isDead)
+        {
+            return;
+        }
+        
         Vector3 rotationEuler = this.transform.rotation.eulerAngles;
         Quaternion laserRotation = Quaternion.Euler(rotationEuler.x, rotationEuler.y, rotationEuler.z - 270);
 

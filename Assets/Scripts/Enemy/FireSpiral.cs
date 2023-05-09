@@ -9,9 +9,21 @@ public class FireSpiral : MonoBehaviour
     
     private float angle = 0.0f;
     private float elapsedTime = 0.0f;
+    
+    private Enemy _enemyBase;
+    
+    void Start()
+    {
+        _enemyBase = GetComponent<Enemy>();
+    }
 
     void Fire()
     {
+        if (_enemyBase.isDead)
+        {
+            return;
+        }
+        
         Vector3 pos = this.transform.position;
         Quaternion rot = this.transform.rotation;
 

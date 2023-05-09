@@ -14,8 +14,20 @@ public class FireHemisphere : MonoBehaviour
     
     private float elapsedTime = 0.0f;
     
+    private Enemy _enemyBase;
+    
+    void Start()
+    {
+        _enemyBase = GetComponent<Enemy>();
+    }
+    
     void Fire()
     {
+        if (_enemyBase.isDead)
+        {
+            return;
+        }
+        
         float angleStep = (endAngle - startAngle) / ammo;
         float angle = startAngle;
         Vector3 pos = this.transform.position;

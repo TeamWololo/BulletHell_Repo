@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     private static readonly int Explosion = Animator.StringToHash("expl");
 
+    [HideInInspector] public bool isDead = false;
+
     private void Awake()
     {
         health = maxHealth;
@@ -30,6 +32,7 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0.0f)
         {
+            isDead = true;
             StartCoroutine(TimedDeactivate());
             StartExplosion();
         }
