@@ -10,4 +10,5 @@ public static class BLLayers
     public static int playerLaser = LayerMask.NameToLayer("PlayerLaser");
     public static int environmentLaser = LayerMask.NameToLayer("EnvironmentLaser");
     public static int pickup = LayerMask.NameToLayer("Pickups");
+    public static int ballisticBullet = LayerMask.NameToLayer("BallisticBullet");
 }

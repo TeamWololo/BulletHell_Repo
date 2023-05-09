@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         GameObject colGO = col.gameObject;
-        if (colGO.layer == BLLayers.playerBullet)
+        if (colGO.layer == BLLayers.playerBullet || colGO.layer == BLLayers.ballisticBullet)
         {
             health -= colGO.GetComponent<PlayerBullet>().damage;
             this.ChangeColorOnDamageDealt();
