@@ -2,11 +2,9 @@
 public class PlayerData
 {
     public string level;
-    public float musicVolume;
 
-    public PlayerData(string _level, float _volume)
+    public PlayerData(string _level)
     {
         level = _level;
-        musicVolume = _volume;
     }
 }

@@ -601,7 +601,7 @@ MonoBehaviour:
   fireDoubleSpiralAI: {fileID: 1786602464113711024, guid: e2789f1db6d1e3a458bb9732d94bf955, type: 3}
   spawnDoubleSpiralAI: 1
   bossPrefab: {fileID: 6232542634955206549, guid: 7ec697a0400a10e4f8f31d167e34b77b, type: 3}
-  deadCountToBossSpawn: 35
+  deadCountToBossSpawn: 25
   musicSlider: {fileID: 1887822989}
   parent: {fileID: 1038026768}
   nextLevel: LastStoryScene
@@ -968,8 +968,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447295796}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.52, y: 0.33775946, z: 1}
+  m_LocalPosition: {x: -0, y: 0.03, z: 0}
+  m_LocalScale: {x: 0.61365193, y: 0.38457292, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

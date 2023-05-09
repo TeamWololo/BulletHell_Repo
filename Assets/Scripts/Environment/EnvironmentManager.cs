@@ -39,6 +39,8 @@ public class EnvironmentManager : MonoBehaviour
     private float playerLaserPickupTimer = 0.0f;
     private float playerLaserTime = 0.0f;
 
+    private float upperThreshold = 1.2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +60,7 @@ public class EnvironmentManager : MonoBehaviour
 
     void CreateAstroid()
     {
-        float randomPos = Random.Range(astroidAreaLeftSide.x, astroidAreaRightSide.x);
+        float randomPos = Random.Range(astroidAreaLeftSide.x + upperThreshold, astroidAreaRightSide.x - upperThreshold);
         GameObject genAstroid = Instantiate(astroid, new Vector3(randomPos, astroidAreaLeftSide.y, 0.0f), Quaternion.identity);
     }
     
@@ -69,7 +71,7 @@ public class EnvironmentManager : MonoBehaviour
 
     IEnumerator StartLaser()
     {
-        float randomPos = Random.Range(laserAreaBottomSide.y + 1.2f, laserAreaTopSide.y - 1.2f);
+        float randomPos = Random.Range(laserAreaBottomSide.y + upperThreshold, laserAreaTopSide.y - upperThreshold);
         GameObject genWarningSign = Instantiate(warningSign, new Vector3(laserAreaTopSide.x + 3 * thresholdLaserArea, randomPos, 0.0f), Quaternion.identity);
         yield return new WaitForSeconds(1.5f);
         Destroy(genWarningSign);
@@ -80,7 +82,7 @@ public class EnvironmentManager : MonoBehaviour
 
     void CreateBallisticPickup()
     {
-        float randomPos = Random.Range(astroidAreaLeftSide.x, astroidAreaRightSide.x);
+        float randomPos = Random.Range(astroidAreaLeftSide.x + upperThreshold, astroidAreaRightSide.x - upperThreshold);
         GameObject genBallisticPickup = Instantiate(ballisticPickup, new Vector3(randomPos, astroidAreaLeftSide.y, 0.0f), Quaternion.identity);
         ballisticTime = Random.Range(ballisticMinTimeToSpawn, ballisticMaxTimeToSpawn);
         StartCoroutine(DestroyPickup(genBallisticPickup));
@@ -88,7 +90,7 @@ public class EnvironmentManager : MonoBehaviour
 
     void CreatePlayerLaserPickup()
     {
-        float randomPos = Random.Range(astroidAreaLeftSide.x, astroidAreaRightSide.x);
+        float randomPos = Random.Range(astroidAreaLeftSide.x + upperThreshold, astroidAreaRightSide.x - upperThreshold);
         GameObject genPlayerLaserPickup = Instantiate(playerLaserPickup, new Vector3(randomPos, astroidAreaLeftSide.y, 0.0f), Quaternion.identity);
         playerLaserTime = Random.Range(playerLaserMinTimeToSpawn, playerLaserMaxTimeToSpawn);
         StartCoroutine(DestroyPickup(genPlayerLaserPickup));

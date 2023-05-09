@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private float defaultVolume = -30f;
     private static bool defaultVolumeSet = false;
     private PlayerData playerData;
+    private MusicData musicData;
     void Start()
     {
         if (!defaultVolumeSet)
@@ -21,10 +22,15 @@ public class MainMenu : MonoBehaviour
             defaultVolumeSet = true;
         }
         playerData = SaveSystem.LoadPlayer();
+        musicData = SaveSystem.LoadMusicData();
+
+        if (musicData != null)
+        {
+            optionsMenu.SetVolume(musicData.musicVolume);
+        }
 
         if (playerData != null)
         {
-            optionsMenu.SetVolume(playerData.musicVolume);
             playButton.SetActive(false);
             continueButton.SetActive(true);
             newGameButton.SetActive(true);
@@ -49,6 +55,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        SaveSystem.SaveMusicData(optionsMenu.GetComponentInChildren<SliderUpdate>().GetMasterVolume());
         Application.Quit();
     }
     IEnumerator MenuUpdate()

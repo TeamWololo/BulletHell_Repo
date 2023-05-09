@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  maxHealth: 500
+  maxHealth: 600
   percentageSpeed: 1
   isBoss: 1
   viewportThreshold: 2
@@ -112,6 +112,7 @@ MonoBehaviour:
     timerDuration: 1
   damagedColor: {r: 1, g: 0, b: 0, a: 1}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  isDead: 0
 --- !u!114 &6232542634955206536
 MonoBehaviour:
   m_ObjectHideFlags: 0

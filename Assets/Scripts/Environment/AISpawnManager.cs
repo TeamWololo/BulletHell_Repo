@@ -91,7 +91,7 @@ public class AISpawnManager : MonoBehaviour
         }
         else
         {
-            x = Random.Range(upperLeft.x, upperRight.x);
+            x = Random.Range(upperLeft.x + 1.2f, upperRight.x - 1.2f);
             y = upperLeft.y;
         }
         
@@ -201,7 +201,8 @@ public class AISpawnManager : MonoBehaviour
 
         if (isBossSpawn && !boss.activeInHierarchy)
         {
-            SaveSystem.SavePlayer(nextLevel, musicSlider.GetMasterVolume());
+            SaveSystem.SavePlayer(nextLevel);
+            SaveSystem.SaveMusicData(musicSlider.GetMasterVolume());
             SceneManager.LoadScene(nextLevel);
         }
         
