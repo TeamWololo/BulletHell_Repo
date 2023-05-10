@@ -65,23 +65,26 @@ public class AISpawnManager : MonoBehaviour
 
     Vector3 GetPosition()
     {
-        float side = Random.Range(0.0f, 100.0f);
         float x = 0.0f;
         float y = 0.0f;
 
         if (aiType == AIType.LASERAI)
         {
+            float side = Random.Range(0.0f, 100.0f);
+            // Spawn from left 
             if (side < 33.0f)
             {
                 x = bottomLeft.x;
                 float width = upperLeft.y - bottomLeft.y;
                 y = Random.Range(bottomLeft.y + (width * 0.7f), upperLeft.y);
             }
+            // Spawn from top
             else if (side < 66.0f)
             {
                 x = Random.Range(upperLeft.x, upperRight.x);
                 y = upperLeft.y;
             }
+            // Spawn from right
             else
             {
                 x = upperRight.x;
@@ -91,7 +94,8 @@ public class AISpawnManager : MonoBehaviour
         }
         else
         {
-            x = Random.Range(upperLeft.x + 1.2f, upperRight.x - 1.2f);
+            // Spawn from top
+            x = Random.Range(upperLeft.x + 1.5f, upperRight.x - 1.5f);
             y = upperLeft.y;
         }
         

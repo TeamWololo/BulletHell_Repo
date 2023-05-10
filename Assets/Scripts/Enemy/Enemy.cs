@@ -72,6 +72,11 @@ public class Enemy : MonoBehaviour
 
         spriteRenderer.color = Color.Lerp(damagedColor, defaultColor, timer.NormalizedTime);
         timer.Update(Time.deltaTime);
+
+        if (isBoss)
+        {
+            Debug.Log(health);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -89,7 +94,8 @@ public class Enemy : MonoBehaviour
     {
         if (col.gameObject.layer == BLLayers.playerLaser)
         {
-            health -= 0.75f;
+            ChangeColorOnDamageDealt();
+            health -= 3.0f;
         }
     }
 

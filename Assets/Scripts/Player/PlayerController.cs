@@ -170,7 +170,17 @@ public class PlayerController : MonoBehaviour
         {
             laserElapsedTime += Time.deltaTime;
 
-            if (laserElapsedTime < laserTimeToAlive) return;
+            if (_player.isDead)
+            {
+                laserRenderer.enabled = false;
+                laserCollider.enabled = false;
+                return;
+            }
+
+            if (laserElapsedTime < laserTimeToAlive)
+            {
+                return;
+            }
 
             laserRenderer.enabled = false;
             laserCollider.enabled = false;
@@ -178,7 +188,7 @@ public class PlayerController : MonoBehaviour
         }
 
         CheckActions();
-        ControlSpeed();
+        // ControlSpeed();
         this.transform.position = GetNewPosition(this.transform.position);
     }
 

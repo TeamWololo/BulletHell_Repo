@@ -143,6 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db9d60b1f403964db2782d0ccbb020c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagedColor: {r: 1, g: 0, b: 0, a: 1}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
   speed: 10
   maxHealth: 100
   spriteRenderer: {fileID: 5037333665155499618}
@@ -150,6 +152,7 @@ MonoBehaviour:
     timerDuration: 1
   healthBar: {fileID: 0}
   Health: 100
+  isDead: 0
 --- !u!50 &2947129508246290806
 Rigidbody2D:
   serializedVersion: 4
@@ -400,7 +403,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6945627145676866122}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -417,5 +420,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.09999999, y: 8.87}
+  m_Size: {x: 0.28, y: 8.87}
   m_EdgeRadius: 0

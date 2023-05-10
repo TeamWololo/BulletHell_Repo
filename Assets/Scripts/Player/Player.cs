@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
 
     public float Health = 100.0f;
 
+    public bool isDead = false;
+
     private Animator animator;
     private static readonly int Explosion = Animator.StringToHash("expl");
 
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour
     {
         if (Health <= 0.0f)
         {
+            isDead = true;
             StartExplosion();
             StartCoroutine(Destroy());
         }
